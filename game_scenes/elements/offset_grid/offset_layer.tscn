@@ -20,7 +20,7 @@ terrain_set_0/terrain_0/name = "test"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_7c6iw")
 
-[node name="OffsetLayer" type="TileMapLayer"]
+[node name="OffsetGrid" type="TileMapLayer"]
 position = Vector2(16, 0)
 tile_set = SubResource("TileSet_slg4q")
 script = ExtResource("2_wdjvs")

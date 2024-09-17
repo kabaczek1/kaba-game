@@ -1,6 +1,18 @@
 extends TileMapLayer
 
-@export var layer_offset: Vector2 = Vector2(16, 16)
+class_name OffsetGrid
+
+var layer_offset: Vector2
+
+
+@export var grid_tile_size: int = 32:
+	set(value):
+		if value > 0 and value % 2 == 0:
+			grid_tile_size = value
+			@warning_ignore("INTEGER_DIVISION")
+			var offset = value/2
+			layer_offset = Vector2(offset, offset)
+
 @export var cells: Array[Vector2i]
 
 var flip_h := TileSetAtlasSource.TRANSFORM_FLIP_H
@@ -27,6 +39,7 @@ var tile_array = [
 ]
 
 func _ready() -> void:
+	grid_tile_size = grid_tile_size
 	position += layer_offset
 	update_grid()
 
@@ -38,9 +51,21 @@ func add_cells(new_cells: Array[Vector2i]):
 	cells.append_array(new_cells)
 	update_grid()
 
+func clear_cell(new_cell: Vector2i):
+	cells.erase(new_cell)
+	for offset_cell in get_offset_cells(new_cell):
+		set_cell(offset_cell, -1)
+	update_grid()
+
 func clear_cells():
 	cells.clear()
 	update_grid()
+
+func flip_cell(new_cell: Vector2i):
+	if new_cell in cells:
+		clear_cell(new_cell)
+	else:
+		add_cell(new_cell)
 
 func update_grid():
 	for main_cell in cells:

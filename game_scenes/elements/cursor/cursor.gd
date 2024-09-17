@@ -1,7 +1,6 @@
 extends Sprite2D
 
-@onready var main_layer: TileMapLayer = $"../MainLayer"
-@onready var offset_layer: TileMapLayer = $"../OffsetLayer"
+@export var main_grid: MainGrid
 
 @export var overshoot_pixels = 4
 @export var moving_time = 0.1:
@@ -22,12 +21,15 @@ var time_to_position = 0.05
 
 var last_snapped_position: Vector2 = Vector2(16,16)
 
+func _ready() -> void:
+	assert(main_grid != null, "set main_grid")
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		update_position(event.position)
 
 func update_position(event_position):
-	var new_snapped_position = main_layer.snapped_position(event_position)
+	var new_snapped_position = main_grid.snapped_position(event_position)
 	if last_snapped_position != new_snapped_position:
 		move_cursor(new_snapped_position)
 		last_snapped_position = new_snapped_position

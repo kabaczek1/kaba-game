@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name GridPath
+
 @export var tile_map: TileMapLayer
 @export var texture: AtlasTexture
 

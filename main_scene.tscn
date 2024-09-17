@@ -1,51 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://7g7fvtx1b6pi"]
+[gd_scene load_steps=2 format=3 uid="uid://7g7fvtx1b6pi"]
 
-[ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://game_scenes/elements/grid_border/grid_border.tscn" id="1_h40e5"]
-[ext_resource type="PackedScene" uid="uid://c80ynayypb4vm" path="res://x.tscn" id="1_n1hqm"]
-[ext_resource type="Script" path="res://game_scenes/elements/main_grid/main_layer.gd" id="2_m7uts"]
-[ext_resource type="PackedScene" uid="uid://lywadmnap1si" path="res://game_scenes/elements/offset_grid/offset_layer.tscn" id="2_sxid4"]
-[ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://game_scenes/elements/cursor/cursor.tscn" id="4_htabp"]
-[ext_resource type="Script" path="res://game_scenes/elements/cursor/cursor.gd" id="5_d1csi"]
-[ext_resource type="PackedScene" uid="uid://boh054d66rghm" path="res://game_scenes/elements/grid_path/grid_path.tscn" id="6_n7pvd"]
-[ext_resource type="Texture2D" uid="uid://dqhbhn1lvwwp" path="res://gfx/gridpath.png" id="7_hxm4d"]
-[ext_resource type="PackedScene" uid="uid://cvyopryrveynx" path="res://game_scenes/elements/grid_navigation/navigation.tscn" id="8_rjcyd"]
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0ruis"]
-resource_name = "aaa"
-scenes/1/scene = ExtResource("1_n1hqm")
-
-[sub_resource type="TileSet" id="TileSet_ek45d"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetScenesCollectionSource_0ruis")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulitf"]
-atlas = ExtResource("7_hxm4d")
-region = Rect2(0, 0, 32, 32)
+[ext_resource type="PackedScene" uid="uid://b48mx451mxjpu" path="res://game_scenes/battle/battle_scene.tscn" id="1_77ud8"]
 
 [node name="MainScene" type="Node2D"]
 
-[node name="BattleBorder" parent="." instance=ExtResource("1_h40e5")]
-
-[node name="MainLayer" type="TileMapLayer" parent="."]
-position = Vector2(16, 16)
-tile_map_data = PackedByteArray(0, 0, 9, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 0)
-tile_set = SubResource("TileSet_ek45d")
-script = ExtResource("2_m7uts")
-
-[node name="ObstacleLayer" parent="." instance=ExtResource("2_sxid4")]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(16, 16)
-cells = Array[Vector2i]([Vector2i(5, 5), Vector2i(5, 6), Vector2i(5, 7)])
-
-[node name="OffsetLayer" parent="." instance=ExtResource("2_sxid4")]
-position = Vector2(16, 16)
-
-[node name="Cursor" parent="." instance=ExtResource("4_htabp")]
-script = ExtResource("5_d1csi")
-
-[node name="GridPath" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("6_n7pvd")]
-tile_map = NodePath("../MainLayer")
-texture = SubResource("AtlasTexture_ulitf")
-
-[node name="Navigation" parent="." node_paths=PackedStringArray("obstacle_layer") instance=ExtResource("8_rjcyd")]
-obstacle_layer = NodePath("../ObstacleLayer")
+[node name="BattleScene" parent="." instance=ExtResource("1_77ud8")]

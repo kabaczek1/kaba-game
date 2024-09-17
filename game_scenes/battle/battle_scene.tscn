@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://b48mx451mxjpu"]
+[gd_scene load_steps=11 format=3 uid="uid://b48mx451mxjpu"]
+
+[ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://game_scenes/elements/grid_border/grid_border.tscn" id="1_rwmwe"]
+[ext_resource type="Script" path="res://game_scenes/battle/test_coordinator.gd" id="1_x3dbe"]
+[ext_resource type="PackedScene" uid="uid://m3wk12ojpscj" path="res://game_scenes/elements/main_grid/main_grid.tscn" id="2_6gr02"]
+[ext_resource type="PackedScene" uid="uid://lywadmnap1si" path="res://game_scenes/elements/offset_grid/offset_layer.tscn" id="4_m36fw"]
+[ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://game_scenes/elements/cursor/cursor.tscn" id="5_4aiie"]
+[ext_resource type="Script" path="res://game_scenes/elements/cursor/cursor.gd" id="6_p44mn"]
+[ext_resource type="PackedScene" uid="uid://boh054d66rghm" path="res://game_scenes/elements/grid_path/grid_path.tscn" id="7_lpvet"]
+[ext_resource type="Texture2D" uid="uid://dqhbhn1lvwwp" path="res://gfx/gridpath.png" id="8_7wmn6"]
+[ext_resource type="PackedScene" uid="uid://cvyopryrveynx" path="res://game_scenes/elements/grid_navigation/grid_navigation.tscn" id="9_m2irc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytsmm"]
+atlas = ExtResource("8_7wmn6")
+region = Rect2(0, 0, 32, 32)
 
 [node name="BattleScene" type="Node2D"]
+
+[node name="TestCoordinator" type="Node" parent="." node_paths=PackedStringArray("main_grid", "offset_grid", "grid_path", "grid_navigation")]
+script = ExtResource("1_x3dbe")
+main_grid = NodePath("../MainGrid")
+offset_grid = NodePath("../ObstacleGrid")
+grid_path = NodePath("../GridPath")
+grid_navigation = NodePath("../GridNavigation")
+
+[node name="GridNavigation" parent="." node_paths=PackedStringArray("obstacle_grid") instance=ExtResource("9_m2irc")]
+obstacle_grid = NodePath("../ObstacleGrid")
+
+[node name="MainGrid" parent="." instance=ExtResource("2_6gr02")]
+
+[node name="ObstacleGrid" parent="." instance=ExtResource("4_m36fw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(16, 16)
+cells = Array[Vector2i]([Vector2i(5, 5), Vector2i(5, 6), Vector2i(5, 7)])
+
+[node name="OffsetGrid" parent="." instance=ExtResource("4_m36fw")]
+position = Vector2(16, 16)
+
+[node name="GridPath" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("7_lpvet")]
+tile_map = NodePath("../MainGrid")
+texture = SubResource("AtlasTexture_ytsmm")
+
+[node name="Cursor" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("5_4aiie")]
+script = ExtResource("6_p44mn")
+main_grid = NodePath("../MainGrid")
+
+[node name="GridBorder" parent="." instance=ExtResource("1_rwmwe")]

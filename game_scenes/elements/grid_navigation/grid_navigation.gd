@@ -1,13 +1,16 @@
 extends Node
 
+class_name GridNavigation
 
-@export var obstacle_layer: TileMapLayer
-@export var astar_grid_region: Rect2i = Rect2i(0, 0, 19, 9)
+@export var obstacle_grid: TileMapLayer
+@export var astar_grid_region: Rect2i = Rect2i(0, 0, 19, 9)#
 
 var obstacles: Array[Vector2i]
 var astar_grid: AStarGrid2D
 
 func _ready() -> void:
+	assert(obstacle_grid != null, "set obstacle_grid")
+	assert(astar_grid_region != null, "Set astar_grid_region")#
 	astar_grid = AStarGrid2D.new()
 	astar_grid.region = astar_grid_region
 	astar_grid.cell_size = Vector2(32, 32)
@@ -16,9 +19,13 @@ func _ready() -> void:
 
 
 func find_path(origin: Vector2i, target: Vector2i) -> Array[Vector2i]:
-	for cell in obstacle_layer.cells:
-		print(cell)
+	reset_astar_grid()
+	for cell in obstacle_grid.cells:
 		astar_grid.set_point_solid(cell)
 	var id_path = astar_grid.get_id_path(origin, target)
-	print(id_path)
 	return id_path
+
+func reset_astar_grid():
+	astar_grid.clear()
+	astar_grid.region = astar_grid_region
+	astar_grid.update()
