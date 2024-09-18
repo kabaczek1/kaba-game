@@ -68,6 +68,7 @@ func flip_cell(new_cell: Vector2i):
 		add_cell(new_cell)
 
 func update_grid():
+	clear()
 	for main_cell in cells:
 		var offset_cells: Array[Vector2i] = get_offset_cells(main_cell)
 		for offset_cell in offset_cells:

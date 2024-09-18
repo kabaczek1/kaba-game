@@ -1,5 +1,7 @@
 extends Sprite2D
 
+class_name Cursor
+
 @export var main_grid: MainGrid
 
 @export var overshoot_pixels = 4
@@ -7,7 +9,7 @@ extends Sprite2D
 	set(value):
 		set_move_and_overshoot_times(value, overshoot_ratio)
 		moving_time = value
-@export var overshoot_ratio = 0.4:
+@export var overshoot_ratio = 0.5:
 	set(value):
 		set_move_and_overshoot_times(moving_time, value)
 		overshoot_ratio = value
@@ -20,6 +22,7 @@ var time_to_overshoot = 0.05
 var time_to_position = 0.05
 
 var last_snapped_position: Vector2 = Vector2(16,16)
+var current_cell: Vector2i = Vector2i(0,0)
 
 func _ready() -> void:
 	assert(main_grid != null, "set main_grid")
@@ -29,7 +32,8 @@ func _input(event):
 		update_position(event.position)
 
 func update_position(event_position):
-	var new_snapped_position = main_grid.snapped_position(event_position)
+	current_cell = main_grid.position_to_grid(event_position)
+	var new_snapped_position = main_grid.grid_to_position(current_cell)
 	if last_snapped_position != new_snapped_position:
 		move_cursor(new_snapped_position)
 		last_snapped_position = new_snapped_position

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://byqyfk2eveccy"]
+
+[ext_resource type="Script" path="res://game_scenes/elements/team_controller/team_controller.gd" id="1_agtso"]
+
+[node name="TeamController" type="Node"]
+script = ExtResource("1_agtso")
