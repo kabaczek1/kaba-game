@@ -2,7 +2,7 @@ extends TileMapLayer
 
 class_name OffsetGrid
 
-var layer_offset: Vector2
+var layer_offset: Vector2 = Vector2(16, 16)
 
 
 @export var grid_tile_size: int = 32:
@@ -39,7 +39,6 @@ var tile_array = [
 ]
 
 func _ready() -> void:
-	grid_tile_size = grid_tile_size
 	position += layer_offset
 	update_grid()
 
@@ -120,3 +119,23 @@ func get_cells(
 		left_lower_cell,
 		right_lower_cell
 	]
+
+
+#func fill_cell(cell: Vector2i, redraw_grid: bool = true):
+	#if redraw_grid:
+		#redraw_grid()
+#
+#func fill_cells(cells: Array[Vector2i], redraw_grid: bool = true):
+	#if redraw_grid:
+		#redraw_grid()
+#
+#func clear_cell(cell: Vector2i, redraw_grid: bool = true):
+	#if redraw_grid:
+		#redraw_grid()
+#
+#func clear_cells(cells: Array[Vector2i], redraw_grid: bool = true):
+	#if redraw_grid:
+		#redraw_grid()
+#
+#func redraw_grid():
+	#pass
