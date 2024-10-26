@@ -42,6 +42,9 @@ grid_navigation = NodePath("../GridNavigation")
 speed = 3
 cell = Vector2i(9, 4)
 
+[node name="GridUnit2" parent="TeamController" instance=ExtResource("4_rhefh")]
+cell = Vector2i(3, 2)
+
 [node name="MainGrid" parent="." instance=ExtResource("2_6gr02")]
 
 [node name="ObstacleGrid" parent="." instance=ExtResource("4_m36fw")]
