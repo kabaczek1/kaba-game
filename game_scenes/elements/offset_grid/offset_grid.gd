@@ -40,33 +40,45 @@ var tile_array = [
 
 func _ready() -> void:
 	position += layer_offset
-	update_grid()
+	redraw()
 
-func add_cell(new_cell: Vector2i):
-	cells.append(new_cell)
-	update_grid()
 
-func add_cells(new_cells: Array[Vector2i]):
+
+func fill_cell(cell: Vector2i, redraw_grid: bool = true):
+	cells.append(cell)
+	if redraw_grid:
+		redraw()
+
+func fill_cells(new_cells: Array[Vector2i], redraw_grid: bool = true):
 	cells.append_array(new_cells)
-	update_grid()
+	if redraw_grid:
+		redraw()
 
-func clear_cell(new_cell: Vector2i):
-	cells.erase(new_cell)
-	for offset_cell in get_offset_cells(new_cell):
+func clear_cell(cell: Vector2i, redraw_grid: bool = true):
+	cells.erase(cell)
+	for offset_cell in get_offset_cells(cell):
 		set_cell(offset_cell, -1)
-	update_grid()
+	if redraw_grid:
+		redraw()
 
-func clear_cells():
+func clear_cells(new_cells: Array[Vector2i], redraw_grid: bool = true):
+	for cell in new_cells:
+		clear_cell(cell)
+	if redraw_grid:
+		redraw()
+
+func clear_all_cells(redraw_grid: bool = true):
 	cells.clear()
-	update_grid()
+	if redraw_grid:
+		redraw()
 
-func flip_cell(new_cell: Vector2i):
-	if new_cell in cells:
-		clear_cell(new_cell)
+func flip_cell(cell: Vector2i):
+	if cell in cells:
+		clear_cell(cell)
 	else:
-		add_cell(new_cell)
+		fill_cell(cell)
 
-func update_grid():
+func redraw():
 	clear()
 	for main_cell in cells:
 		var offset_cells: Array[Vector2i] = get_offset_cells(main_cell)
@@ -119,23 +131,3 @@ func get_cells(
 		left_lower_cell,
 		right_lower_cell
 	]
-
-
-#func fill_cell(cell: Vector2i, redraw_grid: bool = true):
-	#if redraw_grid:
-		#redraw_grid()
-#
-#func fill_cells(cells: Array[Vector2i], redraw_grid: bool = true):
-	#if redraw_grid:
-		#redraw_grid()
-#
-#func clear_cell(cell: Vector2i, redraw_grid: bool = true):
-	#if redraw_grid:
-		#redraw_grid()
-#
-#func clear_cells(cells: Array[Vector2i], redraw_grid: bool = true):
-	#if redraw_grid:
-		#redraw_grid()
-#
-#func redraw_grid():
-	#pass

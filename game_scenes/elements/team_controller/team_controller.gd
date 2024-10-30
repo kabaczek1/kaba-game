@@ -15,12 +15,12 @@ func _ready() -> void:
 	setup_units()
 
 func setup_units():
-	range_grid.clear_cells()
+	range_grid.clear_all_cells()
 	units = get_children()
 	for unit in units:
 		unit.position = main_grid.grid_to_position(unit.cell)
 		show_move_range(unit.cell, unit.speed)
-	range_grid.update_grid()
+	range_grid.redraw()
 
 func show_move_range(cell: Vector2i, speed: int):
 	range_grid.cells.append_array(get_move_array(cell, speed))
