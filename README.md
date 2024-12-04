@@ -2,7 +2,7 @@
 
 ## Dual grid system
 
-- Based on [Oskar Stålberg's talk](https://www.youtube.com/watch?v=Uxeo9c-PX-w&t=308s) and [this video by jess::codes](https://github.com/kabaczek1/polarity-td-prototype/releases)
+- Based on [Oskar Stålberg's talk](https://www.youtube.com/watch?v=Uxeo9c-PX-w&t=308s) and [this video by jess::codes](https://www.youtube.com/watch?v=jEWFSv3ivTg)
 - Allows to generate any grid outline from one simple texture
 
 <img src="gfx/minitiles.png">
