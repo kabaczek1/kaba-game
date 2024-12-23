@@ -72,10 +72,24 @@ func spawn_path_elements():
 			segment_flip = true
 		if steps_array[i - 1] == UP and steps_array[i] == LEFT:
 			segment_flip = true
-		spawn_path_element(cells_array[i], segment, segment_rotation, segment_flip)
-	spawn_path_element(cells_array[-1], TARGET_SEGMENT, steps_array[-1]*90)
+		spawn_path_element(
+			cells_array[i],
+			segment,
+			segment_rotation,
+			segment_flip
+		)
+	spawn_path_element(
+		cells_array[-1],
+		TARGET_SEGMENT,
+		steps_array[-1]*90
+	)
 
-func spawn_path_element(cell: Vector2i, cell_segment: int, cell_rotation: int, flip: bool = false):
+func spawn_path_element(
+		cell: Vector2i,
+		cell_segment: int,
+		cell_rotation: int,
+		flip: bool = false
+	):
 	var sprite2d = Sprite2D.new()
 	sprite2d.texture = texture.duplicate()
 	sprite2d.texture.region = Rect2(cell_segment * 32, 0, 32, 32)

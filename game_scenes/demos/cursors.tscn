@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgu0f2uy8ls16"]
+
+[ext_resource type="Script" path="res://game_scenes/battle/cursors.gd" id="1_egldt"]
+[ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://game_scenes/elements/cursor/cursor.tscn" id="2_gs82v"]
+[ext_resource type="Texture2D" uid="uid://5gpexxbn1hsc" path="res://gfx/cursor1.png" id="3_l8563"]
+[ext_resource type="Texture2D" uid="uid://bmq8ecywk1m46" path="res://gfx/cursor2.png" id="4_y74ph"]
+[ext_resource type="Texture2D" uid="uid://jlb70ugqwqns" path="res://gfx/cursor3.png" id="5_hhuqx"]
+[ext_resource type="Texture2D" uid="uid://c38758bfoa4f" path="res://gfx/cursor4.png" id="6_y80f7"]
+[ext_resource type="Texture2D" uid="uid://dudamou3royj8" path="res://gfx/cursor5.png" id="7_n5x41"]
+
+[node name="Cursors" type="Node" node_paths=PackedStringArray("cursor1", "cursor2", "cursor3", "cursor4", "cursor5")]
+script = ExtResource("1_egldt")
+cursor1 = NodePath("Cursor1")
+cursor2 = NodePath("Cursor2")
+cursor3 = NodePath("Cursor3")
+cursor4 = NodePath("Cursor4")
+cursor5 = NodePath("Cursor5")
+
+[node name="Cursor1" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("2_gs82v")]
+texture = ExtResource("3_l8563")
+main_grid = NodePath("")
+moving_time = 0.5
+
+[node name="Cursor2" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("2_gs82v")]
+texture = ExtResource("4_y74ph")
+main_grid = NodePath("")
+moving_time = 0.5
+overshoot_pixels = 6
+
+[node name="Cursor3" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("2_gs82v")]
+texture = ExtResource("5_hhuqx")
+main_grid = NodePath("")
+moving_time = 0.5
+overshoot_pixels = 8
+
+[node name="Cursor4" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("2_gs82v")]
+texture = ExtResource("6_y80f7")
+main_grid = NodePath("")
+moving_time = 0.5
+overshoot_pixels = 10
+
+[node name="Cursor5" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("2_gs82v")]
+texture = ExtResource("7_n5x41")
+main_grid = NodePath("")
+moving_time = 0.5
+overshoot_pixels = 12

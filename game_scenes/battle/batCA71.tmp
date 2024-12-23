@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b48mx451mxjpu"]
+[gd_scene load_steps=18 format=3 uid="uid://b48mx451mxjpu"]
 
 [ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://game_scenes/elements/grid_border/grid_border.tscn" id="1_rwmwe"]
 [ext_resource type="Script" path="res://game_scenes/battle/test_coordinator.gd" id="1_x3dbe"]
@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://lywadmnap1si" path="res://game_scenes/elements/offset_grid/offset_layer.tscn" id="4_m36fw"]
 [ext_resource type="PackedScene" uid="uid://gu3vvbwh7xrp" path="res://game_scenes/elements/grid_unit/grid_unit.tscn" id="4_rhefh"]
 [ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://game_scenes/elements/cursor/cursor.tscn" id="5_4aiie"]
+[ext_resource type="Script" path="res://game_scenes/elements/cursor/cursor.gd" id="6_p44mn"]
 [ext_resource type="Texture2D" uid="uid://dl2cs3lvrregl" path="res://gfx/minitiles2.png" id="7_idx7o"]
 [ext_resource type="PackedScene" uid="uid://boh054d66rghm" path="res://game_scenes/elements/grid_path/grid_path.tscn" id="7_lpvet"]
 [ext_resource type="Texture2D" uid="uid://dqhbhn1lvwwp" path="res://gfx/gridpath.png" id="8_7wmn6"]
 [ext_resource type="PackedScene" uid="uid://cvyopryrveynx" path="res://game_scenes/elements/grid_navigation/grid_navigation.tscn" id="9_m2irc"]
 [ext_resource type="Texture2D" uid="uid://du130o8byxe6y" path="res://gfx/gridpath_torpedos.png" id="13_bvau4"]
-[ext_resource type="Texture2D" uid="uid://cebl31cmtwbdy" path="res://gfx/grid_indicator.png" id="14_7ei26"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia62k"]
 resource_name = "test"
@@ -38,22 +38,14 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7j7h5"]
 atlas = ExtResource("13_bvau4")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvq4d"]
-texture = ExtResource("14_7ei26")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_b5joo"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_uvq4d")
-
 [node name="BattleScene" type="Node2D"]
 
-[node name="TestCoordinator" type="Node" parent="." node_paths=PackedStringArray("main_grid", "offset_grid", "grid_path", "grid_navigation", "team_controller", "cursor")]
+[node name="TestCoordinator" type="Node" parent="." node_paths=PackedStringArray("main_grid", "offset_grid", "grid_path", "grid_path2", "grid_navigation", "team_controller", "cursor")]
 script = ExtResource("1_x3dbe")
 main_grid = NodePath("../MainGrid")
 offset_grid = NodePath("../ObstacleGrid")
 grid_path = NodePath("../GridPath")
+grid_path2 = NodePath("../GridPath2")
 grid_navigation = NodePath("../GridNavigation")
 team_controller = NodePath("../TeamController")
 cursor = NodePath("../Cursor")
@@ -88,6 +80,7 @@ tile_map = NodePath("../MainGrid")
 texture = SubResource("AtlasTexture_ytsmm")
 
 [node name="Cursor" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("5_4aiie")]
+script = ExtResource("6_p44mn")
 main_grid = NodePath("../MainGrid")
 
 [node name="GridBorder" parent="." instance=ExtResource("1_rwmwe")]
@@ -96,8 +89,3 @@ visible = false
 [node name="GridPath2" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("7_lpvet")]
 tile_map = NodePath("../MainGrid")
 texture = SubResource("AtlasTexture_7j7h5")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(16, 16)
-tile_map_data = PackedByteArray("AAAGAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAASAAQAAAAAAAAAAAASAAUAAAAAAAAAAAASAAYAAAAAAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_b5joo")

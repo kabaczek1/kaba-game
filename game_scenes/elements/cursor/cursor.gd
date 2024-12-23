@@ -4,15 +4,15 @@ class_name Cursor
 
 @export var main_grid: MainGrid
 
-@export var overshoot_pixels = 4
-@export var moving_time = 0.1:
+@export_range(0.01, 3, 0.01, "or_greater", "suffix:s") var moving_time = 0.1:
 	set(value):
 		set_move_and_overshoot_times(value, overshoot_ratio)
 		moving_time = value
-@export var overshoot_ratio = 0.5:
+@export_range(0.1, 0.9, 0.01) var overshoot_ratio = 0.5:
 	set(value):
 		set_move_and_overshoot_times(moving_time, value)
 		overshoot_ratio = value
+@export_range(1, 16, 1, "suffix:px") var overshoot_pixels = 4
 
 func set_move_and_overshoot_times(new_moving_time, new_overshoot_ratio):
 	time_to_overshoot = new_moving_time * new_overshoot_ratio
