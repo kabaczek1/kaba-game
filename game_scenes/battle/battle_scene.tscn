@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://b48mx451mxjpu"]
 
 [ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://game_scenes/elements/grid_border/grid_border.tscn" id="1_rwmwe"]
-[ext_resource type="Script" path="res://game_scenes/battle/test_coordinator.gd" id="1_x3dbe"]
+[ext_resource type="Script" uid="uid://djelwi2wtxwc5" path="res://game_scenes/battle/test_coordinator.gd" id="1_x3dbe"]
 [ext_resource type="PackedScene" uid="uid://m3wk12ojpscj" path="res://game_scenes/elements/main_grid/main_grid.tscn" id="2_6gr02"]
 [ext_resource type="PackedScene" uid="uid://byqyfk2eveccy" path="res://game_scenes/elements/team_controller/team_controller.tscn" id="3_hdae0"]
 [ext_resource type="PackedScene" uid="uid://lywadmnap1si" path="res://game_scenes/elements/offset_grid/offset_layer.tscn" id="4_m36fw"]

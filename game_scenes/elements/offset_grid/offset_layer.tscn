@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://lywadmnap1si"]
 
 [ext_resource type="Texture2D" uid="uid://cugs6ht6i36fg" path="res://gfx/minitiles.png" id="1_rf3pc"]
-[ext_resource type="Script" path="res://game_scenes/elements/offset_grid/offset_grid.gd" id="2_wdjvs"]
+[ext_resource type="Script" uid="uid://cliil6jnotfak" path="res://game_scenes/elements/offset_grid/offset_grid.gd" id="2_wdjvs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7c6iw"]
 resource_name = "test"

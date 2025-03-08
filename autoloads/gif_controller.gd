@@ -35,7 +35,8 @@ func screenshot():
 	await RenderingServer.frame_post_draw
 	var viewport = get_viewport()
 	var img = viewport.get_texture().get_image()
-	img.get_region(record_region).save_png("user://screenshots/ss"+str(ssCount)+".png")
+	img.get_region(record_region).\
+	save_png("user://screenshots/ss"+str(ssCount)+".png")
 	ssCount += 1
 
 func clear_folder():
@@ -55,4 +56,6 @@ func record_gif():
 	if gif_recording:
 		print("GIF "+str(ssCount)+" ("+str(1.0/gifFramerate)+")")
 		screenshot()
-		get_tree().create_timer(1.0/gifFramerate, false).connect("timeout", record_gif)
+		get_tree()\
+		.create_timer(1.0/gifFramerate, false)\
+		.connect("timeout", record_gif)
