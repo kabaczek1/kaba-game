@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d01fjdb7fh0o6" path="res://gfx/basic_unit.png" id="1_ryyfv"]
 
 [node name="GridUnit" type="Sprite2D"]
+position = Vector2(32, 32)
 texture = ExtResource("1_ryyfv")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)

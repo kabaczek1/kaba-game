@@ -1,8 +1,12 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 class_name Cursor
 
+signal current_cell_changed(Vector2i)
+
 @export var main_grid: MainGrid
+
+var main_grid_region
 
 @export_range(0.01, 3, 0.01, "or_greater", "suffix:s") var moving_time = 0.1:
 	set(value):
@@ -26,6 +30,11 @@ var current_cell: Vector2i = Vector2i(0,0)
 
 func _ready() -> void:
 	assert(main_grid != null, "set main_grid")
+	main_grid_region = main_grid.grid_region
+	EventBus.cursor_over_unit.connect(highlight_unit)
+
+func highlight_unit(unit: GridUnit):
+	play("default")
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -37,6 +46,10 @@ func update_position(event_position):
 	if last_snapped_position != new_snapped_position:
 		move_cursor(new_snapped_position)
 		last_snapped_position = new_snapped_position
+		if main_grid_region.has_point(current_cell):
+			stop()
+			EventBus.cursor_cell_changed.emit(current_cell)
+			
 
 func move_cursor(new_position):
 	var overshoot = position - new_position

@@ -11,16 +11,19 @@ var cells_array: Array[Vector2i]:
 		if cells_array.size() >= 2:
 			draw_path()
 		else:
-			print("hmm")
+			clear_path()
 
 var steps_array: Array[int] # 0 - up, 1 - right, 2 - down, 3 - left
 
 #func _ready() -> void:
 	#draw_path()
 
-func draw_path():
+func clear_path():
 	for n in get_children():
 		remove_child(n)
+
+func draw_path():
+	clear_path()
 	create_steps_array()
 	spawn_path_elements()
 

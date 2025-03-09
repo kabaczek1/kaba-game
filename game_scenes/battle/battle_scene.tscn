@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://b48mx451mxjpu"]
+[gd_scene load_steps=18 format=4 uid="uid://b48mx451mxjpu"]
 
+[ext_resource type="Script" uid="uid://b085o0t7g5snh" path="res://game_scenes/battle/battle_controller.gd" id="1_rphiv"]
 [ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://game_scenes/elements/grid_border/grid_border.tscn" id="1_rwmwe"]
-[ext_resource type="Script" uid="uid://djelwi2wtxwc5" path="res://game_scenes/battle/test_coordinator.gd" id="1_x3dbe"]
 [ext_resource type="PackedScene" uid="uid://m3wk12ojpscj" path="res://game_scenes/elements/main_grid/main_grid.tscn" id="2_6gr02"]
 [ext_resource type="PackedScene" uid="uid://byqyfk2eveccy" path="res://game_scenes/elements/team_controller/team_controller.tscn" id="3_hdae0"]
 [ext_resource type="PackedScene" uid="uid://lywadmnap1si" path="res://game_scenes/elements/offset_grid/offset_layer.tscn" id="4_m36fw"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://boh054d66rghm" path="res://game_scenes/elements/grid_path/grid_path.tscn" id="7_lpvet"]
 [ext_resource type="Texture2D" uid="uid://dqhbhn1lvwwp" path="res://gfx/gridpath.png" id="8_7wmn6"]
 [ext_resource type="PackedScene" uid="uid://cvyopryrveynx" path="res://game_scenes/elements/grid_navigation/grid_navigation.tscn" id="9_m2irc"]
-[ext_resource type="Texture2D" uid="uid://du130o8byxe6y" path="res://gfx/gridpath_torpedos.png" id="13_bvau4"]
 [ext_resource type="Texture2D" uid="uid://cebl31cmtwbdy" path="res://gfx/grid_indicator.png" id="14_7ei26"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia62k"]
@@ -31,13 +30,6 @@ terrain_set_0/terrain_0/name = "test"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_ia62k")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ytsmm"]
-atlas = ExtResource("8_7wmn6")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7j7h5"]
-atlas = ExtResource("13_bvau4")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvq4d"]
 texture = ExtResource("14_7ei26")
 texture_region_size = Vector2i(32, 32)
@@ -47,41 +39,60 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_uvq4d")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytsmm"]
+atlas = ExtResource("8_7wmn6")
+region = Rect2(0, 0, 32, 32)
+
 [node name="BattleScene" type="Node2D"]
 
-[node name="TestCoordinator" type="Node" parent="." node_paths=PackedStringArray("main_grid", "offset_grid", "grid_path", "grid_navigation", "team_controller", "cursor")]
-script = ExtResource("1_x3dbe")
+[node name="BattleController" type="Node" parent="." node_paths=PackedStringArray("main_grid", "range_grid", "obstacle_grid", "grid_path", "grid_navigation", "player_team", "enemy_team", "cursor")]
+unique_name_in_owner = true
+script = ExtResource("1_rphiv")
 main_grid = NodePath("../MainGrid")
-offset_grid = NodePath("../ObstacleGrid")
+range_grid = NodePath("../RangeGrid")
+obstacle_grid = NodePath("../ObstacleGrid")
 grid_path = NodePath("../GridPath")
 grid_navigation = NodePath("../GridNavigation")
-team_controller = NodePath("../TeamController")
+player_team = NodePath("../PlayerTeam")
+enemy_team = NodePath("../EnemyTeam")
 cursor = NodePath("../Cursor")
 
 [node name="GridNavigation" parent="." node_paths=PackedStringArray("main_grid", "obstacle_grid") instance=ExtResource("9_m2irc")]
 main_grid = NodePath("../MainGrid")
 obstacle_grid = NodePath("../ObstacleGrid")
 
-[node name="TeamController" parent="." node_paths=PackedStringArray("main_grid", "range_grid", "obstacle_grid", "grid_path", "grid_navigation") instance=ExtResource("3_hdae0")]
+[node name="PlayerTeam" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("3_hdae0")]
 main_grid = NodePath("../MainGrid")
-range_grid = NodePath("../OffsetGrid")
-obstacle_grid = NodePath("../ObstacleGrid")
-grid_path = NodePath("../GridPath")
-grid_navigation = NodePath("../GridNavigation")
 
-[node name="GridUnit" parent="TeamController" instance=ExtResource("4_rhefh")]
+[node name="GridUnit" parent="PlayerTeam" instance=ExtResource("4_rhefh")]
+position = Vector2(160, 160)
 speed = 3
 cell = Vector2i(4, 4)
 
+[node name="EnemyTeam" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("3_hdae0")]
+main_grid = NodePath("../MainGrid")
+
+[node name="GridUnit" parent="EnemyTeam" instance=ExtResource("4_rhefh")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(480, 160)
+flip_h = true
+cell = Vector2i(14, 4)
+
 [node name="MainGrid" parent="." instance=ExtResource("2_6gr02")]
+
+[node name="RangeGrid" parent="." instance=ExtResource("4_m36fw")]
+position = Vector2(16, 16)
 
 [node name="ObstacleGrid" parent="." instance=ExtResource("4_m36fw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(16, 16)
 tile_set = SubResource("TileSet_j71w7")
 
-[node name="OffsetGrid" parent="." instance=ExtResource("4_m36fw")]
+[node name="GridVisual" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(16, 16)
+tile_map_data = PackedByteArray("AAAGAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAASAAQAAAAAAAAAAAASAAUAAAAAAAAAAAASAAYAAAAAAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAAAAAAJAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_b5joo")
 
 [node name="GridPath" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("7_lpvet")]
 tile_map = NodePath("../MainGrid")
@@ -91,13 +102,3 @@ texture = SubResource("AtlasTexture_ytsmm")
 main_grid = NodePath("../MainGrid")
 
 [node name="GridBorder" parent="." instance=ExtResource("1_rwmwe")]
-visible = false
-
-[node name="GridPath2" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("7_lpvet")]
-tile_map = NodePath("../MainGrid")
-texture = SubResource("AtlasTexture_7j7h5")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(16, 16)
-tile_map_data = PackedByteArray("AAAGAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAASAAQAAAAAAAAAAAASAAUAAAAAAAAAAAASAAYAAAAAAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_b5joo")
