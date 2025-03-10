@@ -7,6 +7,7 @@ signal scale_changed(scale: int)
 var base_resolution = Vector2i(640, 360)
 var current_scale: int = 2 #also display/window/size/window_width_override
 
+@warning_ignore("unused_parameter")
 func set_window_size(scale: int, confirm: bool = false):
 	var new_size = base_resolution * scale
 	get_window().size = new_size

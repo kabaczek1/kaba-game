@@ -12,7 +12,10 @@ class_name BattleController
 @export var enemy_team: TeamController
 @export var cursor: Cursor
 
+var current_turn = 1
+
 var current_unit
+var unit_below_cursor
 var current_unit_selected = false
 var valid_move_target
 
@@ -21,30 +24,54 @@ func _ready() -> void:
 		assert_correct_dependencies()
 	EventBus.cursor_cell_changed.connect(_on_cursor_cell_changed)
 	EventBus.cursor_over_unit.connect(_on_cursor_over_unit)
+	EventBus.cursor_left_main_grid.connect(_on_cursor_left_main_grid)
+	EventBus.unit_cell_changed.connect(_on_unit_cell_changed)
+	EventBus.player_turn_ended.connect(_on_player_turn_ended)
+	EventBus.unit_movement_animation_ended.connect(_on_unit_movement_animation_ended)
+	update_obstacle_grid()
+
+func _on_player_turn_ended():
+	deselect_current_unit()
+	clear_move_range()
+	current_unit_selected = false
+	valid_move_target = null
+	current_unit = null
+	#Enemy Actions
+	for player_unit in player_team.units:
+		player_unit.new_turn()
+	for enemy_unit in enemy_team.units:
+		enemy_unit.new_turn()
+	current_turn += 1
+	EventBus.turn_number_changed.emit(current_turn)
+
+func _on_unit_movement_animation_ended(unit: GridUnit):
+	if unit.can_move and unit == current_unit:
+		show_move_range(unit.cell, unit.remaining_speed)
+
+func _on_unit_cell_changed(unit: GridUnit):
+	update_obstacle_grid()
+	if valid_move_target == unit.cell:
+		valid_move_target = null
+	#show_move_range(unit.cell, unit.remaining_speed)
+
+func _on_cursor_left_main_grid():
+	grid_path.clear_path()
+	valid_move_target = null
 
 func _on_cursor_over_unit(unit: GridUnit):
-	current_unit = unit
+	unit_below_cursor = unit
 
 func _on_cursor_cell_changed(new_cell):
-	pass
 	#print(new_cell)
-	#if current_unit_selected:
-		#if can_move_to_cell(current_unit.cell, new_cell, current_unit.speed):
-			#update_grid_path(current_unit.cell, new_cell)
-			#valid_move_target = new_cell
-		#else:
-			#grid_path.clear_path()
-			#valid_move_target = null
-		#return
-	#var unit_in_the_cell = false
-	#for unit in player_team.units:
-		#if unit.cell == new_cell:
-			#unit_in_the_cell = true
-			#current_unit = unit
-	#if unit_in_the_cell:
-		#cursor.play("default")
-	#else:
-		#cursor.stop()
+	if current_unit_selected\
+	and current_unit.can_move\
+	and not(current_unit.movement_animation_active):
+		if can_move_to_cell(current_unit.cell, new_cell, current_unit.remaining_speed):
+			update_grid_path(current_unit.cell, new_cell)
+			valid_move_target = new_cell
+		else:
+			grid_path.clear_path()
+			valid_move_target = null
 
 func assert_correct_dependencies():
 	assert(main_grid != null, "set main_grid")
@@ -56,12 +83,6 @@ func assert_correct_dependencies():
 	assert(enemy_team != null, "set enemy_team")
 	assert(cursor != null, "set cursor")
 
-func new_turn():
-	for player_unit in player_team.units:
-		player_unit.new_turn()
-	for enemy_unit in enemy_team.units:
-		enemy_unit.new_turn()
-
 func _input(event):
 	if event is InputEventMouseButton and event.pressed == true:
 		if event.get_button_index() == 1: # left
@@ -72,33 +93,46 @@ func _input(event):
 			print("middle")
 
 func handle_left_click():
-	if current_unit_selected == false and current_unit.cell == cursor.current_cell:
-		print("select_current_unit()")
+	if unit_below_cursor != null and unit_below_cursor.cell == cursor.current_cell:
 		select_current_unit()
 		return
-	if current_unit_selected == true and valid_move_target != null:
-		print(valid_move_target)
+	if current_unit_selected == true\
+	and valid_move_target != null\
+	and current_unit.can_move\
+	and not(current_unit.movement_animation_active):
 		current_unit.move(grid_path.cells_array)
 		grid_path.clear_path()
 		clear_move_range()
+		return
+	if cursor.on_the_main_grid:
+		deselect_current_unit()
 
 func handle_right_click():
 	if current_unit_selected == true:
-		print("deselect_current_unit()")
 		deselect_current_unit()
 		return
 
 func select_current_unit():
+	if current_unit_selected:
+		if current_unit != null:
+			deselect_current_unit()
+	print("select_current_unit()")
 	current_unit_selected = true
+	current_unit = unit_below_cursor
+	current_unit.is_selected = true
 	cursor.stop()
 	EventBus.unit_selected.emit(current_unit)
-	show_move_range(current_unit.cell, current_unit.speed)
+	if current_unit.can_move:
+		show_move_range(current_unit.cell, current_unit.remaining_speed)
 
 func deselect_current_unit():
+	print("deselect_current_unit()")
 	current_unit_selected = false
 	valid_move_target = null
-	if current_unit.cell == cursor.current_cell:
-		cursor.play("default")
+	if current_unit != null:
+		current_unit.is_selected = false
+		if current_unit.cell == cursor.current_cell:
+			cursor.play("default")
 	clear_move_range()
 	EventBus.unit_deselected.emit()
 	grid_path.clear_path()
@@ -156,3 +190,12 @@ func can_move_to_cell(origin: Vector2i, target: Vector2i, speed: int) -> bool:
 func update_grid_path(origin_cell: Vector2i, target_cell: Vector2i):
 	var nav_cells = grid_navigation.find_path(origin_cell, target_cell)
 	grid_path.cells_array = nav_cells
+
+func update_obstacle_grid():
+	grid_navigation.obstacle_grid.cells.clear()
+	for unit in player_team.units:
+		grid_navigation.obstacle_grid.cells.append(unit.cell)
+	for unit in enemy_team.units:
+		grid_navigation.obstacle_grid.cells.append(unit.cell)
+	grid_navigation.obstacle_grid.redraw()
+	#TODO: fixup

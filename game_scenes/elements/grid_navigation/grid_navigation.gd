@@ -5,7 +5,6 @@ class_name GridNavigation
 @export var main_grid: MainGrid
 @export var obstacle_grid: TileMapLayer
 
-var obstacles: Array[Vector2i]
 var astar_grid: AStarGrid2D
 
 func _ready() -> void:

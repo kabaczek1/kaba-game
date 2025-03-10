@@ -9,3 +9,4 @@ texture = ExtResource("1_ryyfv")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 script = ExtResource("1_kdmmd")
+animation_speed = null
