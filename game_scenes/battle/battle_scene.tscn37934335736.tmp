@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b48mx451mxjpu"]
+[gd_scene load_steps=24 format=4 uid="uid://b48mx451mxjpu"]
 
 [ext_resource type="Script" uid="uid://b085o0t7g5snh" path="res://game_scenes/battle/battle_controller.gd" id="1_rphiv"]
 [ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://game_scenes/elements/grid_border/grid_border.tscn" id="1_rwmwe"]
@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://d3h4xuvhedvse" path="res://new_theme.tres" id="13_ahsri"]
 [ext_resource type="Texture2D" uid="uid://c38758bfoa4f" path="res://gfx/cursor4.png" id="14_02yle"]
 [ext_resource type="Texture2D" uid="uid://cebl31cmtwbdy" path="res://gfx/grid_indicator.png" id="14_7ei26"]
+[ext_resource type="Script" uid="uid://bskgseafi2flk" path="res://game_scenes/battle/test_button.gd" id="15_swh6m"]
 [ext_resource type="Script" uid="uid://quboifp8a3lk" path="res://game_scenes/battle/end_turn_button.gd" id="16_02yle"]
 [ext_resource type="Script" uid="uid://bahgsbphnlywe" path="res://game_scenes/battle/undo_button.gd" id="17_ahsri"]
 [ext_resource type="Script" uid="uid://cy4sc502qhuiw" path="res://game_scenes/battle/label.gd" id="17_swh6m"]
@@ -177,12 +178,15 @@ text = "HP:3"
 layout_mode = 2
 text = "AP:2"
 
-[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer" node_paths=PackedStringArray("unit")]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "A"
+script = ExtResource("15_swh6m")
+unit = NodePath("../../../PlayerTeam/GridUnit")
+move_target = Vector2i(4, 5)
 
 [node name="Button2" type="Button" parent="HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
@@ -207,9 +211,12 @@ script = ExtResource("17_swh6m")
 
 [node name="UndoButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-disabled = true
-text = "UNDO MOVE"
+text = "<"
 script = ExtResource("17_ahsri")
+
+[node name="RedoButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = ">"
 
 [node name="EndTurnButton" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(96, 0)

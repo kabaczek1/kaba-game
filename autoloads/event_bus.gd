@@ -20,3 +20,6 @@ signal unit_movement_animation_ended(GridUnit)
 signal player_turn_ended()
 @warning_ignore("unused_signal")
 signal turn_number_changed(int)
+
+@warning_ignore("unused_signal")
+signal move_undid()

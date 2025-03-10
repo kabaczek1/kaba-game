@@ -19,6 +19,8 @@ var unit_below_cursor
 var current_unit_selected = false
 var valid_move_target
 
+var hover_move_range = false
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		assert_correct_dependencies()
@@ -28,6 +30,7 @@ func _ready() -> void:
 	EventBus.unit_cell_changed.connect(_on_unit_cell_changed)
 	EventBus.player_turn_ended.connect(_on_player_turn_ended)
 	EventBus.unit_movement_animation_ended.connect(_on_unit_movement_animation_ended)
+	EventBus.move_undid.connect(_on_move_undid)
 	update_obstacle_grid()
 
 func _on_player_turn_ended():
@@ -73,6 +76,9 @@ func _on_cursor_cell_changed(new_cell):
 			grid_path.clear_path()
 			valid_move_target = null
 
+func _on_move_undid():
+	clear_move_range()
+
 func assert_correct_dependencies():
 	assert(main_grid != null, "set main_grid")
 	assert(range_grid != null, "set range_grid")
@@ -100,7 +106,9 @@ func handle_left_click():
 	and valid_move_target != null\
 	and current_unit.can_move\
 	and not(current_unit.movement_animation_active):
-		current_unit.move(grid_path.cells_array)
+		var moveCommand = MoveCommand.new(current_unit, grid_path.cells_array)
+		CommandController.add(moveCommand)
+		#current_unit.move(grid_path.cells_array)
 		grid_path.clear_path()
 		clear_move_range()
 		return
@@ -142,9 +150,12 @@ func clear_move_range():
 	range_grid.redraw()
 
 func show_move_range(cell: Vector2i, speed: int):
+	if speed <= 0:
+		return
 	range_grid.clear_all_cells()
 	range_grid.cells.append_array(get_move_array(cell, speed))
 	range_grid.redraw()
+	_on_cursor_cell_changed(cursor.current_cell)
 
 func get_move_array(cell: Vector2i, speed: int) -> Array[Vector2i]:
 	var all_cells: Array[Vector2i] = []

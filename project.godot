@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 Resolution="*res://autoloads/resolution.gd"
 GifController="*res://autoloads/gif_controller.gd"
 EventBus="*res://autoloads/event_bus.gd"
+CommandController="*res://autoloads/command_controller.gd"
 
 [display]
 
