@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3357rt5yqelw"]
+
+[ext_resource type="Texture2D" uid="uid://c8e5bu0k7w8v3" path="res://assets/gfx/cursor_animation.png" id="1_7lf8s"]
+[ext_resource type="Script" uid="uid://crcjuc806uctb" path="res://gameplay/elements/cursor/cursor.gd" id="2_bjjfy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw2jo"]
+atlas = ExtResource("1_7lf8s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b154s"]
+atlas = ExtResource("1_7lf8s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq03c"]
+atlas = ExtResource("1_7lf8s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk5ui"]
+atlas = ExtResource("1_7lf8s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fje4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw2jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b154s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq03c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk5ui")
+}],
+"loop": true,
+"name": &"unit_hover",
+"speed": 10.0
+}]
+
+[node name="Cursor" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_fje4b")
+animation = &"unit_hover"
+script = ExtResource("2_bjjfy")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://1gvpgd1laqvh"]
+
+[ext_resource type="Script" uid="uid://c6t3hnpdadva5" path="res://content/abilities/ability.gd" id="1_aqnqp"]
+[ext_resource type="Resource" uid="uid://dyktb1nr60vfu" path="res://content/abilities/blink_move/blink_move.tres" id="2_3mlen"]
+[ext_resource type="Resource" uid="uid://cye6vgithmr0d" path="res://content/abilities/ranged_attack/ranged_attack.tres" id="3_eqgwy"]
+[ext_resource type="Texture2D" uid="uid://c38758bfoa4f" path="res://assets/gfx/cursor4.png" id="4_eqgwy"]
+[ext_resource type="Script" uid="uid://48wwea18pjpn" path="res://content/units/unit_resource.gd" id="5_8i23i"]
+[ext_resource type="Resource" uid="uid://cr4ectdqjjgce" path="res://content/abilities/standard_move/standard_move.tres" id="5_74qal"]
+[ext_resource type="Texture2D" uid="uid://d1u71njdcews8" path="res://assets/tiny_rpg_character/Characters/Archer/Archer with shadows/Archer.png" id="7_gaax7"]
+
+[resource]
+script = ExtResource("5_8i23i")
+name = "Pacek"
+description = "Archer"
+icon = ExtResource("4_eqgwy")
+texture = ExtResource("7_gaax7")
+base_hp = 2
+base_ap = 2
+base_move = 4
+move_ability = ExtResource("5_74qal")
+attack_ability = ExtResource("3_eqgwy")
+abilities = Array[ExtResource("1_aqnqp")]([ExtResource("2_3mlen")])
+metadata/_custom_type_script = "uid://48wwea18pjpn"

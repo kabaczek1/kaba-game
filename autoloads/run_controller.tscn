@@ -1,0 +1,16 @@
+[gd_scene load_steps=10 format=3 uid="uid://coxdrwclap25x"]
+
+[ext_resource type="Script" uid="uid://7mva318jgym6" path="res://autoloads/run_controller.gd" id="1_736pv"]
+[ext_resource type="Script" uid="uid://48wwea18pjpn" path="res://content/units/unit_resource.gd" id="2_mff64"]
+[ext_resource type="Resource" uid="uid://dvsy4e5sjqts4" path="res://content/units/mage_unit/mage_unit.tres" id="3_jia8i"]
+[ext_resource type="Resource" uid="uid://cskla05kwnb7e" path="res://content/units/standard_unit/standard_unit.tres" id="4_04b30"]
+[ext_resource type="Resource" uid="uid://1gvpgd1laqvh" path="res://content/units/archer_unit/archer_unit.tres" id="5_c28hp"]
+[ext_resource type="Script" uid="uid://btqb1lu5hh7vr" path="res://content/levels/level_resource.gd" id="6_c28hp"]
+[ext_resource type="Resource" uid="uid://cqpd2bm3lyn77" path="res://content/levels/level_1/level_1.tres" id="7_0adk2"]
+[ext_resource type="Resource" uid="uid://58d5vr5qjl6t" path="res://content/levels/level_2/level_2.tres" id="8_wy6ug"]
+[ext_resource type="Resource" uid="uid://cvvbxn4rjwdqn" path="res://content/levels/level_3/level_3.tres" id="9_myi4u"]
+
+[node name="RunController" type="Node"]
+script = ExtResource("1_736pv")
+selected_team = Array[ExtResource("2_mff64")]([ExtResource("3_jia8i"), ExtResource("4_04b30"), ExtResource("5_c28hp")])
+levels = Array[ExtResource("6_c28hp")]([ExtResource("7_0adk2"), ExtResource("8_wy6ug"), ExtResource("9_myi4u")])

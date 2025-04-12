@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj757vockf7xa"]
-
-[ext_resource type="Script" uid="uid://bvb8rk4k4qwf0" path="res://game_scenes/elements/grid_object/grid_object.gd" id="1_wxy18"]
-
-[node name="GridObject" type="Sprite2D"]
-script = ExtResource("1_wxy18")

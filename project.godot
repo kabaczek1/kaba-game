@@ -10,12 +10,16 @@ config_version=5
 
 [application]
 
-config/name="kaba-game"
+config/name="dungeon-extraction"
 run/main_scene="res://main_scene.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="kaba-game"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://dt7ss5uy1xqfq"
+config/icon="uid://4pqr4ecddwsr"
 
 [autoload]
 
@@ -23,6 +27,11 @@ Resolution="*res://autoloads/resolution.gd"
 GifController="*res://autoloads/gif_controller.gd"
 EventBus="*res://autoloads/event_bus.gd"
 CommandController="*res://autoloads/command_controller.gd"
+Enums="*res://autoloads/enums.gd"
+SceneController="*res://autoloads/scene_controller.tscn"
+RunController="*res://autoloads/run_controller.tscn"
+GameController="*res://autoloads/game_controller.gd"
+BattleController="*res://autoloads/BattleController.tscn"
 
 [display]
 
@@ -41,12 +50,20 @@ naming/script_name_casing=2
 [file_customization]
 
 folder_colors={
-"res://autoloads/": "purple",
-"res://game_scenes/": "pink",
-"res://game_scenes/elements/": "teal",
+"res://assets/": "red",
+"res://autoloads/": "orange",
+"res://content/": "yellow",
+"res://exports/": "gray",
+"res://gameplay/": "blue",
+"res://gameplay/level/": "purple",
 "res://gfx/": "yellow",
 "res://ui/": "green"
 }
+
+[gui]
+
+theme/custom="uid://d3h4xuvhedvse"
+theme/custom_font="uid://d088bbca00dxd"
 
 [input]
 

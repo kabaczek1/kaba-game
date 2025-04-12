@@ -21,3 +21,9 @@
 - Allows to tweak snapping parameters
 
 <img src="prototype.gif">
+
+# Used assets
+
+- [Tiny RPG Character Asset Pack v1.03 by Zerie](https://zerie.itch.io/tiny-rpg-character-asset-pack)
+- [Pixel Art Top Down - Basic by Cainos](https://cainos.itch.io/pixel-art-top-down-basic)
+- [Retro Pixel Font](https://retro-pixel-font.takwolf.com)

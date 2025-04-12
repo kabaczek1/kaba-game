@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctomenwyrjhoy"]
+
+[ext_resource type="Texture2D" uid="uid://blxg04kccrrh1" path="res://assets/gfx/logo.png" id="1_c2gx7"]
+[ext_resource type="Script" uid="uid://cgyuedtj8y7co" path="res://ui/scenes/title_screen/start_button.gd" id="1_xh7aq"]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture = ExtResource("1_c2gx7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "DUNGEON"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "EXTRACTION"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "PLAY"
+script = ExtResource("1_xh7aq")

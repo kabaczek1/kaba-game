@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=3 format=3 uid="uid://cvvbxn4rjwdqn"]
+
+[ext_resource type="Script" uid="uid://btqb1lu5hh7vr" path="res://content/levels/level_resource.gd" id="1_f2wc0"]
+[ext_resource type="PackedScene" uid="uid://cf4egcssbc1q6" path="res://content/levels/level_3/level_3.tscn" id="1_qs06s"]
+
+[resource]
+script = ExtResource("1_f2wc0")
+level_name = "Level Tree"
+difficulty = 5
+level_scene = ExtResource("1_qs06s")
+metadata/_custom_type_script = "uid://btqb1lu5hh7vr"

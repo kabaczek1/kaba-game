@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvyopryrveynx"]
-
-[ext_resource type="Script" uid="uid://bkvxmy56drh8s" path="res://game_scenes/elements/grid_navigation/grid_navigation.gd" id="1_lavth"]
-
-[node name="GridNavigation" type="Node"]
-script = ExtResource("1_lavth")

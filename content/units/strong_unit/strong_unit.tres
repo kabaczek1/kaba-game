@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=7 format=3 uid="uid://dhoh5gyafo22"]
+
+[ext_resource type="Script" uid="uid://c6t3hnpdadva5" path="res://content/abilities/ability.gd" id="1_uhsw2"]
+[ext_resource type="Resource" uid="uid://b3mj08r138dvi" path="res://content/abilities/melee_attack/melee_attack.tres" id="2_nhtgu"]
+[ext_resource type="Texture2D" uid="uid://jlb70ugqwqns" path="res://assets/gfx/cursor3.png" id="3_hldeg"]
+[ext_resource type="Resource" uid="uid://dohj7pc1vfu4r" path="res://content/abilities/jump_move/jump_move.tres" id="4_173fp"]
+[ext_resource type="Script" uid="uid://48wwea18pjpn" path="res://content/units/unit_resource.gd" id="5_m8xey"]
+[ext_resource type="Texture2D" uid="uid://cuibe6vdblunf" path="res://assets/tiny_rpg_character/Characters/Orc/Orc with shadows/Orc.png" id="6_fe7d5"]
+
+[resource]
+script = ExtResource("5_m8xey")
+name = "Lucek"
+description = "Fighter"
+icon = ExtResource("3_hldeg")
+texture = ExtResource("6_fe7d5")
+base_hp = 4
+base_ap = 2
+base_move = 3
+move_ability = ExtResource("4_173fp")
+attack_ability = ExtResource("2_nhtgu")
+abilities = Array[ExtResource("1_uhsw2")]([])
+metadata/_custom_type_script = "uid://48wwea18pjpn"

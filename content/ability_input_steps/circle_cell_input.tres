@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityInputStep" load_steps=2 format=3 uid="uid://bspp2glnso01k"]
+
+[ext_resource type="Script" uid="uid://dt6jt3cj20ra7" path="res://content/abilities/ability_input_step.gd" id="1_ckgdh"]
+
+[resource]
+script = ExtResource("1_ckgdh")
+description = "Select a cell"
+option_key = "cell"
+target = 0
+shape = 0
+metadata/_custom_type_script = "uid://dt6jt3cj20ra7"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://boit3nwd5y50b"]
+
+[ext_resource type="Script" uid="uid://cg26gue85n3py" path="res://gameplay/battle/ability_button.gd" id="1_pwrua"]
+
+[node name="AbilityButton" type="TextureButton"]
+script = ExtResource("1_pwrua")

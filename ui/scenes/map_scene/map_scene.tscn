@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4tjyxe4gc4ui"]
+
+[ext_resource type="Script" uid="uid://cuxjx6814atl0" path="res://ui/scenes/map_scene/map_scene.gd" id="1_8ishs"]
+[ext_resource type="PackedScene" uid="uid://b48qdxjeq083w" path="res://ui/scenes/map_scene/level_button.tscn" id="2_qq8ci"]
+
+[node name="MapScene" type="Node2D" node_paths=PackedStringArray("button_container")]
+script = ExtResource("1_8ishs")
+button_container = NodePath("CenterContainer/VBoxContainer")
+level_button = ExtResource("2_qq8ci")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8

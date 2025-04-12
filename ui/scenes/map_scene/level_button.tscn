@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b48qdxjeq083w"]
+
+[ext_resource type="Script" uid="uid://ctrp5l26g5ylc" path="res://ui/scenes/map_scene/level_button.gd" id="1_00da5"]
+
+[node name="LevelButton" type="Button"]
+script = ExtResource("1_00da5")
