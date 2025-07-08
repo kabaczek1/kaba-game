@@ -15,7 +15,14 @@ func execute():
 	if ability.input_steps.is_empty():
 		return
 	var input_step = ability.input_steps[0]
-	var available_cells = BattleController.bs.main_grid.get_shape_around_cell(ability.grid_range, unit.cell, input_step.shape)
+	var initial_cells = BattleController.bs.main_grid.get_shape_around_cell(ability.grid_range, unit.cell, input_step.shape)
+	var available_cells:Array[Vector2i] = []
+	var level_cells = BattleController.level.get_ground_tiles()
+	print(level_cells)
+	for cell in initial_cells:
+		if BattleController.bs.grid_navigation.find_path(unit.cell, ability_options.get("cell"), level_cells).size() <= ability.grid_range:
+			available_cells.append(cell)
+	
 	var path = BattleController.bs.grid_navigation.find_path(unit.cell, ability_options.get("cell"), available_cells)
 	unit.move(path)
 	unit.moved = true

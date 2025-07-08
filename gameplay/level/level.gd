@@ -16,3 +16,10 @@ func setup(_level_resource):
 		print(data)
 		if data:
 			level_cells.set(cell, data.get_custom_data("LevelTargetType"))
+
+func get_ground_tiles():
+	var output: Array[Vector2i] = []
+	for cell in level_cells:
+		if level_cells[cell] == Enums.LevelTargetType.GROUND:
+			output.append(cell)
+	return output

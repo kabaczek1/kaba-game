@@ -23,6 +23,10 @@ func enter():
 		return
 	input_step = ability.input_steps[0]
 	var available_cells = bc.bs.main_grid.get_shape_around_cell(ability.grid_range, unit.cell, input_step.shape)
+	#for cell in bc.bs.main_grid.get_shape_around_cell(ability.grid_range, unit.cell, input_step.shape):
+		#print(input_step)
+		#if input_step.cell_validator.validate(unit.cell, cell):
+			#available_cells.push(cell)
 	bc.bs.range_grid.clear_all_cells()
 	bc.bs.range_grid.modulate.a = 0.5
 	bc.bs.range_grid.fill_cells(available_cells)

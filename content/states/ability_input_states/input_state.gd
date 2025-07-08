@@ -26,7 +26,16 @@ func enter():
 	if ability.input_steps.is_empty():
 		return
 	input_step = ability.input_steps[0]
-	available_cells = bc.bs.main_grid.get_shape_around_cell(ability.grid_range, unit.cell, input_step.shape)
+	
+	var initial_cells = BattleController.bs.main_grid.get_shape_around_cell(ability.grid_range, unit.cell, input_step.shape)
+	var level_cells = BattleController.level.get_ground_tiles()
+	print(level_cells)
+	for cell in initial_cells:
+		if cell in level_cells:
+			if BattleController.bs.grid_navigation.find_path(unit.cell, cell, level_cells).size() -1 <= ability.grid_range:
+				available_cells.append(cell)
+	
+	#available_cells = bc.bs.main_grid.get_shape_around_cell(ability.grid_range, unit.cell, input_step.shape)
 	bc.bs.range_grid.clear_all_cells()
 	bc.bs.range_grid.modulate.a = 1
 	bc.bs.range_grid.fill_cells(available_cells)

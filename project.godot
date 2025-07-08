@@ -18,7 +18,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-boot_splash/image="uid://dt7ss5uy1xqfq"
+boot_splash/image="uid://byyaqnvnsxexv"
 config/icon="uid://4pqr4ecddwsr"
 
 [autoload]
