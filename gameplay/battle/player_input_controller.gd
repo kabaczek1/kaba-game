@@ -16,5 +16,5 @@ func _ready() -> void:
 	EventBus.player_turn_started.connect(func ():
 		state_machine.set_default_state_and_push(idle_state)
 	)
-	idle_state = IdleState.new(state_machine)
-	state_machine.set_default_state_and_push(idle_state)
+	#idle_state = IdleState.new(state_machine)
+	#state_machine.set_default_state_and_push(idle_state)

@@ -1,6 +1,6 @@
 extends Button
 
-var level: LevelResource
+var level: Level
 
-func _pressed() -> void:
-	RunController.start_level(level)
+#func _pressed() -> void:
+	#RunController.start_level(level)

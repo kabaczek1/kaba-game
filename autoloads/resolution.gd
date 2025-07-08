@@ -1,3 +1,5 @@
+# move to settings.gd
+
 extends Node
 
 signal scale_changed(scale: int)

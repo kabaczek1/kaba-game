@@ -4,7 +4,7 @@ class_name GridUnit
 var sprite_2d: Sprite2D
 var animation_player: AnimationPlayer
 
-@export var unit_res: UnitResource
+#@export var unit_res: UnitResource
 
 @export var team: Enums.Team
 @export_range(0.5, 3, 0.5) var animation_speed: float = 1
@@ -18,11 +18,11 @@ var movement_animation_active: bool = false
 
 var is_selected: bool
 
-func setup(_unit_res: UnitResource, _team: Enums.Team, _cell: Vector2i):
-	unit_res = _unit_res
-	team = _team
-	cell = _cell
-	position = BattleController.cell_to_position(cell)
+#func setup(_unit_res: UnitResource, _team: Enums.Team, _cell: Vector2i):
+	#unit_res = _unit_res
+	#team = _team
+	#cell = _cell
+	#position = BattleController.cell_to_position(cell)
 
 func new_turn():
 	moved = false
@@ -31,13 +31,13 @@ func new_turn():
 func _ready() -> void:
 	sprite_2d = $Sprite2D
 	animation_player = $AnimationPlayer
-	unit_res = unit_res.duplicate()
-	sprite_2d.texture = unit_res.texture
+	#unit_res = unit_res.duplicate()
+	#sprite_2d.texture = unit_res.texture
 	@warning_ignore_start("integer_division")
 	sprite_2d.hframes = sprite_2d.texture.get_width()/100
 	sprite_2d.vframes = sprite_2d.texture.get_height()/100
 	@warning_ignore_restore("integer_division")
-	speed = unit_res.base_move
+	#speed = unit_res.base_move
 	is_selected = false
 	modulate.a = 0.6
 	animation_player.play("idle")

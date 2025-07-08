@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4tjyxe4gc4ui"]
+
+[ext_resource type="Script" uid="uid://cuxjx6814atl0" path="res://ui/scenes/map_scene/world_map.gd" id="1_8nf8o"]
+[ext_resource type="PackedScene" uid="uid://b48qdxjeq083w" path="res://ui/scenes/map_scene/level_button.tscn" id="2_dfmkd"]
+
+[node name="WorldMap" type="Node2D" node_paths=PackedStringArray("button_container")]
+script = ExtResource("1_8nf8o")
+level_button = ExtResource("2_dfmkd")
+button_container = NodePath("CenterContainer/VBoxContainer")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8

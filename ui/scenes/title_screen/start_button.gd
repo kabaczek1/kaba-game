@@ -1,4 +1,4 @@
 extends Button
 
 func _pressed():
-	GameController.start_new_run()
+	GlobalController.start_new_game()

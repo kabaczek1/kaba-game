@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://djfr11gv0lgdi"]
+[gd_scene load_steps=13 format=4 uid="uid://dwejqa6qe4veo"]
 
 [ext_resource type="Script" uid="uid://dw3uxdinkfxex" path="res://gameplay/level/level.gd" id="1_l4jmg"]
 [ext_resource type="Texture2D" uid="uid://cebl31cmtwbdy" path="res://assets/gfx/grid_indicator.png" id="2_2mdpi"]

@@ -67,13 +67,13 @@ func _ready() -> void:
 	EventBus.player_turn_started.connect(func ():
 		state_machine.set_default_state_and_push(empty_state)
 	)
-	#empty_state = EmptyAbilityState.new(state_machine, self)
+	empty_state = EmptyAbilityState.new(state_machine, self)
 	state_machine.set_default_state_and_push(empty_state)
 
-#func resolve_ability(unit: GridUnit, ability: Ability):
-	#print(\"resolve_ability: \", unit, ability)
-	#var ability_command = ability.command.new(unit, ability_options)
-	#CommandController.add(ability_command)
+func resolve_ability(unit: GridUnit, ability: Ability):
+	print(\"resolve_ability: \", unit, ability)
+	var ability_command = ability.command.new(unit, ability_options)
+	CommandController.add(ability_command)
 	
 "
 

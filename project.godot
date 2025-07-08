@@ -26,12 +26,9 @@ config/icon="uid://4pqr4ecddwsr"
 Resolution="*res://autoloads/resolution.gd"
 GifController="*res://autoloads/gif_controller.gd"
 EventBus="*res://autoloads/event_bus.gd"
-CommandController="*res://autoloads/command_controller.gd"
 Enums="*res://autoloads/enums.gd"
 SceneController="*res://autoloads/scene_controller.tscn"
-RunController="*res://autoloads/run_controller.tscn"
-GameController="*res://autoloads/game_controller.gd"
-BattleController="*res://autoloads/BattleController.tscn"
+GlobalController="*res://autoloads/global_controller.gd"
 
 [display]
 
@@ -55,7 +52,6 @@ folder_colors={
 "res://content/": "yellow",
 "res://exports/": "gray",
 "res://gameplay/": "blue",
-"res://gameplay/level/": "purple",
 "res://gfx/": "yellow",
 "res://ui/": "green"
 }

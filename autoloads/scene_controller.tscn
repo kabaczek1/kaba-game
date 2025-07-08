@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd4823u8wnwnt"]
+[gd_scene load_steps=7 format=3 uid="uid://dd4823u8wnwnt"]
 
 [ext_resource type="Script" uid="uid://dlr3yp8km0wvb" path="res://autoloads/scene_controller.gd" id="1_kwtcs"]
 [ext_resource type="PackedScene" uid="uid://b4l7m17xct7e3" path="res://ui/scenes/transition_scene/transition_scene.tscn" id="2_lhphl"]
 [ext_resource type="PackedScene" uid="uid://ctomenwyrjhoy" path="res://ui/scenes/title_screen/title_screen.tscn" id="3_u8vdo"]
 [ext_resource type="PackedScene" uid="uid://b48mx451mxjpu" path="res://gameplay/battle/battle_scene.tscn" id="4_dy5yq"]
-[ext_resource type="PackedScene" uid="uid://b4tjyxe4gc4ui" path="res://ui/scenes/map_scene/map_scene.tscn" id="5_u8vdo"]
+[ext_resource type="PackedScene" uid="uid://b4tjyxe4gc4ui" path="res://ui/scenes/map_scene/world_map.tscn" id="5_u8vdo"]
+[ext_resource type="PackedScene" uid="uid://cjh7p3kpe17ua" path="res://ui/scenes/hq_screen/hq_screen.tscn" id="6_dy5yq"]
 
 [node name="SceneController" type="Node2D"]
 script = ExtResource("1_kwtcs")
@@ -12,3 +13,4 @@ transition_scene = ExtResource("2_lhphl")
 title_screen = ExtResource("3_u8vdo")
 battle_scene = ExtResource("4_dy5yq")
 map_scene = ExtResource("5_u8vdo")
+hq_screen = ExtResource("6_dy5yq")

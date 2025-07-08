@@ -5,6 +5,7 @@ extends Node
 @export var title_screen: PackedScene
 @export var battle_scene: PackedScene
 @export var map_scene: PackedScene
+@export var hq_screen: PackedScene
 
 func change_to_battle_scene():
 	change_to_scene(battle_scene)
@@ -12,8 +13,10 @@ func change_to_battle_scene():
 func change_to_map_scene():
 	change_to_scene(map_scene)
 
+func change_to_hq_screen():
+	change_to_scene(hq_screen)
+
 func change_to_scene(scene: PackedScene):
-	print("change_to_scene")
 	var transition = transition_scene.instantiate()
 	get_tree().root.add_child(transition)
 	await transition.transition_scene_animation_fully_in
@@ -22,3 +25,4 @@ func change_to_scene(scene: PackedScene):
 	await EventBus.scene_loaded
 	print("after EventBus.scene_loaded")
 	transition.animate_out()
+	print("after transition.animate_out()")

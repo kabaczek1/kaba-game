@@ -22,11 +22,6 @@ func snapped_position(v: Vector2) -> Vector2:
 func is_on_the_grid(cell: Vector2i) -> bool:
 	return grid_region.has_point(cell)
 
-func get_shape_around_cell(size: int, origin_cell: Vector2i, shape: Enums.Shape) -> Array[Vector2i]:
-	if shape == Enums.Shape.CIRCLE:
-		return get_circle_around_cell(size, origin_cell)
-	return []
-
 func get_circle_around_cell(size: int, origin_cell: Vector2i) -> Array[Vector2i]:
 	var output: Array[Vector2i] = []
 	for cell in get_circle(size):
