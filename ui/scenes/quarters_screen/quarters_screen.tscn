@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://ybhvtxn40fph"]
+
+[ext_resource type="Script" uid="uid://coalddowlei2d" path="res://ui/scenes/quarters_screen/quarters_screen.gd" id="1_6805a"]
+
+[node name="QuartersScreen" type="Node2D" node_paths=PackedStringArray("war_room_button")]
+script = ExtResource("1_6805a")
+war_room_button = NodePath("MarginContainer/VBoxContainer/WarRoomButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quarters"
+
+[node name="WarRoomButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"

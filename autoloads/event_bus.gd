@@ -21,7 +21,6 @@ signal state_entered(name: String)
 
 #new
 @warning_ignore_start("unused_signal")
-signal scene_loaded()
 signal unit_movement_animation_ended(unit: GridUnit)
 signal unit_movement_animation_started(unit: GridUnit)
 

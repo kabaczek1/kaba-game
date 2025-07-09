@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://u5hyw05xwsnk"]
+
+[ext_resource type="Script" uid="uid://ctgi0ceermsbj" path="res://ui/scenes/gameplay_screen/gameplay_screen.gd" id="1_cdmpl"]
+
+[node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button")]
+script = ExtResource("1_cdmpl")
+mission_summary_button = NodePath("MarginContainer/VBoxContainer/MissionSummaryButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Gameplay"
+
+[node name="MissionSummaryButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mission Summary"

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6ijgsppo28xv"]
+
+[ext_resource type="Script" uid="uid://cikg1p0fisoaa" path="res://autoloads/pause_controller.gd" id="1_24dgq"]
+[ext_resource type="PackedScene" uid="uid://bvse3l6wys12d" path="res://ui/scenes/pause_screen/pause_screen.tscn" id="2_st48a"]
+
+[sub_resource type="Animation" id="Animation_st48a"]
+resource_name = "slide_pause_menu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -360)]
+}
+
+[sub_resource type="Animation" id="Animation_luk4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7wi5c"]
+_data = {
+&"RESET": SubResource("Animation_luk4b"),
+&"slide_pause_menu": SubResource("Animation_st48a")
+}
+
+[node name="PauseController" type="Node2D"]
+process_mode = 3
+z_index = 5
+script = ExtResource("1_24dgq")
+
+[node name="PauseScreen" parent="." instance=ExtResource("2_st48a")]
+position = Vector2(0, -360)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_7wi5c")
+}

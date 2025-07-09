@@ -1,16 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd4823u8wnwnt"]
+[gd_scene load_steps=11 format=3 uid="uid://dd4823u8wnwnt"]
 
 [ext_resource type="Script" uid="uid://dlr3yp8km0wvb" path="res://autoloads/scene_controller.gd" id="1_kwtcs"]
 [ext_resource type="PackedScene" uid="uid://b4l7m17xct7e3" path="res://ui/scenes/transition_scene/transition_scene.tscn" id="2_lhphl"]
 [ext_resource type="PackedScene" uid="uid://ctomenwyrjhoy" path="res://ui/scenes/title_screen/title_screen.tscn" id="3_u8vdo"]
 [ext_resource type="PackedScene" uid="uid://b48mx451mxjpu" path="res://gameplay/battle/battle_scene.tscn" id="4_dy5yq"]
-[ext_resource type="PackedScene" uid="uid://b4tjyxe4gc4ui" path="res://ui/scenes/map_scene/world_map.tscn" id="5_u8vdo"]
-[ext_resource type="PackedScene" uid="uid://cjh7p3kpe17ua" path="res://ui/scenes/hq_screen/hq_screen.tscn" id="6_dy5yq"]
+[ext_resource type="PackedScene" uid="uid://cs3tvg78kg6cj" path="res://ui/scenes/war_room_screen/war_room_screen.tscn" id="5_u8vdo"]
+[ext_resource type="PackedScene" uid="uid://dxjab43jpnclm" path="res://ui/scenes/world_map_screen/world_map_screen.tscn" id="6_dy5yq"]
+[ext_resource type="PackedScene" uid="uid://ybhvtxn40fph" path="res://ui/scenes/quarters_screen/quarters_screen.tscn" id="7_k6j3h"]
+[ext_resource type="PackedScene" uid="uid://cruyqcha84rgh" path="res://ui/scenes/magic_workshop_screen/magic_workshop_screen.tscn" id="7_y0acf"]
+[ext_resource type="PackedScene" uid="uid://u5hyw05xwsnk" path="res://ui/scenes/gameplay_screen/gameplay_screen.tscn" id="9_32xts"]
+[ext_resource type="PackedScene" uid="uid://3sgbsyuxb78f" path="res://ui/scenes/mission_summary_screen/mission_summary_screen.tscn" id="10_jw6f5"]
 
 [node name="SceneController" type="Node2D"]
 script = ExtResource("1_kwtcs")
 transition_scene = ExtResource("2_lhphl")
 title_screen = ExtResource("3_u8vdo")
 battle_scene = ExtResource("4_dy5yq")
-map_scene = ExtResource("5_u8vdo")
-hq_screen = ExtResource("6_dy5yq")
+war_room_screen = ExtResource("5_u8vdo")
+world_map_screen = ExtResource("6_dy5yq")
+quarters_screen = ExtResource("7_k6j3h")
+magic_workshop_screen = ExtResource("7_y0acf")
+gameplay_screen = ExtResource("9_32xts")
+mission_summary_screen = ExtResource("10_jw6f5")

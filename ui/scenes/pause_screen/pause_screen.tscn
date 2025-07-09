@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvse3l6wys12d"]
+
+[ext_resource type="Script" uid="uid://dnexi4kglxj6a" path="res://ui/scenes/pause_screen/pause_screen.gd" id="1_4nees"]
+
+[node name="PauseScreen" type="Node2D" node_paths=PackedStringArray("resume_button")]
+script = ExtResource("1_4nees")
+resume_button = NodePath("MarginContainer/VBoxContainer/ResumeButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Pause"
+
+[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
