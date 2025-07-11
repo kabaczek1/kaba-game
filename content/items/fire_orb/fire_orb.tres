@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://cy46hpe1ivqn8"]
+
+[ext_resource type="Script" uid="uid://vd5l2avjpl6v" path="res://content/items/item.gd" id="1_e72gc"]
+
+[resource]
+script = ExtResource("1_e72gc")
+name = "Fire Orb"
+description = "Attacks deal 1 more damage"
+metadata/_custom_type_script = "uid://vd5l2avjpl6v"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=2 format=3 uid="uid://c3hbe64ul1lbo"]
+
+[ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="1_m4vpk"]
+
+[resource]
+script = ExtResource("1_m4vpk")
+name = "Sword"
+reach = 1
+description = "Ability Description"
+type = 1
+metadata/_custom_type_script = "uid://citer6numwmnw"

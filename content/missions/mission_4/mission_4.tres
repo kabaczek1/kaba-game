@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Mission" load_steps=2 format=3 uid="uid://c755epw8fjdew"]
+
+[ext_resource type="Script" uid="uid://cywvg463h8uc3" path="res://content/missions/mission.gd" id="1_kgclp"]
+
+[resource]
+script = ExtResource("1_kgclp")
+name = "Dawn of tommorow"
+description = "Final fight!!!"
+world_map_cell = Vector2i(2, 2)
+metadata/_custom_type_script = "uid://cywvg463h8uc3"

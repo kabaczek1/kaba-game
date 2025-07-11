@@ -1,0 +1,12 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqx7hwm8lhyje"]
+
+[ext_resource type="Script" uid="uid://bjybsooas14lh" path="res://autoloads/mission_controller.gd" id="1_kmnh3"]
+[ext_resource type="Script" uid="uid://cywvg463h8uc3" path="res://content/missions/mission.gd" id="2_ihner"]
+[ext_resource type="Resource" uid="uid://c1xqn6lfgqrw5" path="res://content/missions/mission_1/mission_1.tres" id="3_eaac5"]
+[ext_resource type="Resource" uid="uid://bl45wb50xq672" path="res://content/missions/mission_2/mission_2.tres" id="4_55jqq"]
+[ext_resource type="Resource" uid="uid://b4htbm0r2vj1c" path="res://content/missions/mission_3/mission_3.tres" id="5_5xrld"]
+[ext_resource type="Resource" uid="uid://c755epw8fjdew" path="res://content/missions/mission_4/mission_4.tres" id="6_m2kbi"]
+
+[node name="MissionController" type="Node"]
+script = ExtResource("1_kmnh3")
+missions = Array[ExtResource("2_ihner")]([ExtResource("3_eaac5"), ExtResource("4_55jqq"), ExtResource("5_5xrld"), ExtResource("6_m2kbi")])

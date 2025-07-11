@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=2 format=3 uid="uid://8qrk6r1kkpkk"]
+
+[ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="1_dslgn"]
+
+[resource]
+script = ExtResource("1_dslgn")
+name = "Teleporting Fist"
+reach = 2
+description = "Fists the enemy to your base"
+type = 2
+metadata/_custom_type_script = "uid://citer6numwmnw"

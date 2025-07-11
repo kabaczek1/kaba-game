@@ -20,3 +20,9 @@ enum Team {
 	PLAYER,
 	ENEMY
 }
+
+enum AbilityType {
+	MOVE,
+	ATTACK,
+	CATCH
+}

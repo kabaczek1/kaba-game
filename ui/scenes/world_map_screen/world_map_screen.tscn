@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://kdk4il347mus" path="res://ui/scenes/world_map_screen/world_map_screen.gd" id="1_myuh1"]
 
-[node name="WorldMapScreen" type="Node2D" node_paths=PackedStringArray("war_room_button", "mission_button")]
+[node name="WorldMapScreen" type="Node2D" node_paths=PackedStringArray("war_room_button", "mission_button_container")]
 script = ExtResource("1_myuh1")
 war_room_button = NodePath("MarginContainer/VBoxContainer/WarRoomButton")
-mission_button = NodePath("MarginContainer/VBoxContainer/MissionButton")
+mission_button_container = NodePath("MarginContainer/VBoxContainer/MissionButtonContainter")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 640.0
@@ -31,6 +31,8 @@ text = "World Map"
 layout_mode = 2
 text = "Back"
 
-[node name="MissionButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Mission"
+
+[node name="MissionButtonContainter" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2

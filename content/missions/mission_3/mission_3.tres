@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Mission" load_steps=2 format=3 uid="uid://b4htbm0r2vj1c"]
+
+[ext_resource type="Script" uid="uid://cywvg463h8uc3" path="res://content/missions/mission.gd" id="1_smp3w"]
+
+[resource]
+script = ExtResource("1_smp3w")
+name = "Strenght and Honor"
+description = "Mission Description"
+world_map_cell = Vector2i(2, 2)
+metadata/_custom_type_script = "uid://cywvg463h8uc3"

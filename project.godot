@@ -30,6 +30,7 @@ Enums="*res://autoloads/enums.gd"
 SceneController="*res://autoloads/scene_controller.tscn"
 GlobalController="*res://autoloads/global_controller.gd"
 PauseController="*res://autoloads/pause_controller.tscn"
+MissionController="*res://autoloads/mission_controller.tscn"
 
 [display]
 
@@ -51,6 +52,9 @@ folder_colors={
 "res://assets/": "red",
 "res://autoloads/": "orange",
 "res://content/": "yellow",
+"res://content/abilities/attack/": "red",
+"res://content/abilities/catch/": "purple",
+"res://content/abilities/move/": "teal",
 "res://exports/": "gray",
 "res://gameplay/": "blue",
 "res://gfx/": "yellow",
