@@ -1,0 +1,13 @@
+[gd_scene load_steps=8 format=3 uid="uid://dx86n4e7hq2an"]
+
+[ext_resource type="Script" uid="uid://lu8wpng1hsx6" path="res://autoloads/global_controller.gd" id="1_2jevl"]
+[ext_resource type="Script" uid="uid://b71vw3o7ucalg" path="res://content/characters/character.gd" id="2_qxt2j"]
+[ext_resource type="Resource" uid="uid://mqyoqp1snp1p" path="res://content/characters/cleric/cleric.tres" id="3_kyfr6"]
+[ext_resource type="Resource" uid="uid://7mwlaa5o4fv5" path="res://content/characters/fighter/fighter.tres" id="4_w8hn6"]
+[ext_resource type="Resource" uid="uid://n82wk5w6q31" path="res://content/characters/mage/mage.tres" id="5_fvsgd"]
+[ext_resource type="Resource" uid="uid://hcqavpxjpqjb" path="res://content/characters/monk/monk.tres" id="6_kqcth"]
+[ext_resource type="Resource" uid="uid://cop5m5bqf8leb" path="res://content/characters/tank/tank.tres" id="7_ngs3b"]
+
+[node name="GlobalController" type="Node"]
+script = ExtResource("1_2jevl")
+characters = Array[ExtResource("2_qxt2j")]([ExtResource("3_kyfr6"), ExtResource("4_w8hn6"), ExtResource("5_fvsgd"), ExtResource("6_kqcth"), ExtResource("7_ngs3b")])
