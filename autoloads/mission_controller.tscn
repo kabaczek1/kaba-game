@@ -10,3 +10,4 @@
 [node name="MissionController" type="Node"]
 script = ExtResource("1_kmnh3")
 missions = Array[ExtResource("2_ihner")]([ExtResource("3_eaac5"), ExtResource("4_55jqq"), ExtResource("5_5xrld"), ExtResource("6_m2kbi")])
+current_mission = ExtResource("3_eaac5")

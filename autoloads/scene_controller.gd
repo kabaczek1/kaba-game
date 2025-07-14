@@ -40,8 +40,5 @@ func change_to_scene(scene: PackedScene):
 	get_tree().root.add_child(transition)
 	await transition.transition_scene_animation_fully_in
 	get_tree().change_scene_to_packed(scene)
-	print("before EventBus.scene_loaded")
 	await scene_loaded
-	print("after EventBus.scene_loaded")
 	transition.animate_out()
-	print("after transition.animate_out()")

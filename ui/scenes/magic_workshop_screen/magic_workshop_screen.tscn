@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cukdby0vmcxnc" path="res://ui/scenes/magic_workshop_screen/magic_workshop_screen.gd" id="1_ppvpl"]
 
-[node name="MagicWorkshopScreen" type="Node2D" node_paths=PackedStringArray("war_room_button")]
+[node name="MagicWorkshopScreen" type="Node2D" node_paths=PackedStringArray("war_room_button", "item_select_container")]
 script = ExtResource("1_ppvpl")
 war_room_button = NodePath("MarginContainer/VBoxContainer/WarRoomButton")
+item_select_container = NodePath("MarginContainer/VBoxContainer/ItemSelectContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 640.0
@@ -29,3 +30,8 @@ text = "Magic Workshop"
 [node name="WarRoomButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="ItemSelectContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

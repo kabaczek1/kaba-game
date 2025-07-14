@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="Mission" load_steps=2 format=3 uid="uid://bl45wb50xq672"]
+[gd_resource type="Resource" script_class="Mission" load_steps=4 format=3 uid="uid://bl45wb50xq672"]
 
+[ext_resource type="Script" uid="uid://vd5l2avjpl6v" path="res://content/items/item.gd" id="1_1e0xl"]
 [ext_resource type="Script" uid="uid://cywvg463h8uc3" path="res://content/missions/mission.gd" id="1_tvdrb"]
+[ext_resource type="Resource" uid="uid://b4htbm0r2vj1c" path="res://content/missions/mission_3/mission_3.tres" id="2_5xcd0"]
 
 [resource]
 script = ExtResource("1_tvdrb")
 name = "For the Greater Glory of God"
 description = "Mission Description"
 world_map_cell = Vector2i(2, 2)
-status = 1
+status = 2
+item_pool = Array[ExtResource("1_1e0xl")]([])
+item_available = false
+next_mission = ExtResource("2_5xcd0")
 metadata/_custom_type_script = "uid://cywvg463h8uc3"

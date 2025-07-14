@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ctgi0ceermsbj" path="res://ui/scenes/gameplay_screen/gameplay_screen.gd" id="1_cdmpl"]
 
-[node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button")]
+[node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button", "mission_label", "current_team_container")]
 script = ExtResource("1_cdmpl")
 mission_summary_button = NodePath("MarginContainer/VBoxContainer/MissionSummaryButton")
+mission_label = NodePath("MarginContainer/VBoxContainer/MissionLabel")
+current_team_container = NodePath("MarginContainer/VBoxContainer/CurrentTeam")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 640.0
@@ -25,6 +27,14 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Gameplay"
+
+[node name="MissionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "<Mission Name>"
+
+[node name="CurrentTeam" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="MissionSummaryButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

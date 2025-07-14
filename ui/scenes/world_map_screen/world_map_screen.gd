@@ -6,7 +6,6 @@ extends Node2D
 
 func _ready() -> void:
 	war_room_button.pressed.connect(func ():
-		print(war_room_button)
 		SceneController.go_to_war_room()
 	)
 	#temp
@@ -15,8 +14,15 @@ func _ready() -> void:
 		#SceneController.go_to_gameplay()
 	#)
 	for mission in MissionController.missions:
-		print(mission.name)
 		var button = Button.new()
 		button.text = mission.name
 		mission_button_container.add_child(button)
+		
+		if not mission.is_available():
+			button.disabled = true
+			
+		button.pressed.connect(func ():
+			MissionController.set_mission(mission)
+			SceneController.go_to_gameplay()
+		)
 	SceneController.scene_loaded.emit()

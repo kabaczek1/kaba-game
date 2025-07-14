@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://gu3vvbwh7xrp"]
+[gd_scene load_steps=6 format=3 uid="uid://gu3vvbwh7xrp"]
 
 [ext_resource type="Script" uid="uid://ih8ajcwywacs" path="res://gameplay/elements/grid_unit/grid_unit.gd" id="1_kdmmd"]
-[ext_resource type="Resource" uid="uid://cskla05kwnb7e" path="res://content/units/standard_unit/standard_unit.tres" id="3_35xth"]
 [ext_resource type="Texture2D" uid="uid://dcqtdfwriqogu" path="res://assets/tiny_rpg_character/Characters/Skeleton/Skeleton/Skeleton.png" id="3_ty6uo"]
 
 [sub_resource type="Animation" id="Animation_ooiau"]
@@ -33,7 +32,6 @@ _data = {
 [node name="GridUnit" type="Node2D"]
 modulate = Color(1, 1, 1, 0.6)
 script = ExtResource("1_kdmmd")
-unit_res = ExtResource("3_35xth")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_ty6uo")
