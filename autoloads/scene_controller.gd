@@ -14,6 +14,8 @@ signal scene_loaded()
 @export var gameplay_screen: PackedScene
 @export var mission_summary_screen: PackedScene
 
+var in_transition = false
+
 func change_to_battle_scene():
 	change_to_scene(battle_scene)
 
@@ -36,9 +38,12 @@ func go_to_mission_summary():
 	change_to_scene(mission_summary_screen)
 
 func change_to_scene(scene: PackedScene):
+	in_transition = true
 	var transition = transition_scene.instantiate()
 	get_tree().root.add_child(transition)
 	await transition.transition_scene_animation_fully_in
 	get_tree().change_scene_to_packed(scene)
 	await scene_loaded
 	transition.animate_out()
+	await transition.transition_scene_animation_fully_out
+	in_transition = false

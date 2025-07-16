@@ -5,7 +5,7 @@ var paused = false
 @export var animation_name: String = "slide_pause_menu"
 
 func _process(_delta):
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and not(SceneController.in_transition):
 		if paused:
 			resume_game()
 		else:

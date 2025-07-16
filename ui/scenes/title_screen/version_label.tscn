@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdw1jxj0uo2kg"]
+
+[ext_resource type="Script" uid="uid://du8r8pnmwwwq6" path="res://ui/scenes/title_screen/version_label.gd" id="1_c8puk"]
+
+[node name="VersionLabel" type="Label"]
+text = "X.X.X"
+script = ExtResource("1_c8puk")

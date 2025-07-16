@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal transition_scene_animation_fully_in()
+signal transition_scene_animation_fully_out()
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -12,3 +13,5 @@ func transition_animation_in():
 
 func animate_out():
 	animation_player.play("fade_out")
+	await animation_player.animation_finished
+	transition_scene_animation_fully_out.emit()

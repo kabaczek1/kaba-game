@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://du1wclo2v6jb"]
+[gd_scene load_steps=18 format=3 uid="uid://du1wclo2v6jb"]
 
 [ext_resource type="PackedScene" uid="uid://gu3vvbwh7xrp" path="res://gameplay/elements/grid_unit/grid_unit.tscn" id="2_25ddf"]
 [ext_resource type="Texture2D" uid="uid://jlb70ugqwqns" path="res://assets/gfx/cursor3.png" id="2_r3u1s"]
+[ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="2_voyn8"]
 [ext_resource type="Texture2D" uid="uid://cuibe6vdblunf" path="res://assets/tiny_rpg_character/Characters/Orc/Orc with shadows/Orc.png" id="3_voyn8"]
 
 [sub_resource type="GDScript" id="GDScript_s73t2"]
@@ -169,38 +170,6 @@ func get_all_grid_cells() -> Array[Vector2i]:
 #endregion
 "
 
-[sub_resource type="GDScript" id="GDScript_086yp"]
-script/source = "extends Resource
-
-class_name Ability
-
-@export var name: String = \"AbilityName\"
-@export var description: String = \"AbilityDescription\"
-@export var icon: Texture
-
-@export var has_cost: bool = true
-@export var cost: int = 1
-
-@export var has_range: bool = false
-@export var grid_range: int
-
-@export var has_damage: bool = false
-@export var damage: int
-
-@export var has_res: bool = false #resource
-@export var res: int
-@export var res_name: String
-
-@export var allow_multiple_uses_per_turn: bool = false
-var used: bool = false
-
-@export var input_steps: Array[AbilityInputStep]
-
-@export var command: GDScript #Command https://www.reddit.com/r/godot/comments/138el4k/using_scripts_via_an_export_variable/
-#@export var ability_input: AbilityInput
-#@export var ability_validator: AbilityResolver
-"
-
 [sub_resource type="GDScript" id="GDScript_8bsjd"]
 script/source = "extends Command
 
@@ -249,23 +218,36 @@ func undo():
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7rqj6"]
 load_path = "res://.godot/imported/melee_attack.png-2dbd099bb721072a1a0191541c0544d9.ctex"
 
-[sub_resource type="GDScript" id="GDScript_dddca"]
+[sub_resource type="GDScript" id="GDScript_086yp"]
 script/source = "extends Resource
 
-class_name AbilityInputStep
+class_name Ability
 
-@export var description: String
-@export var option_key: String
-@export var target: Enums.TargetType
-@export var shape: Enums.Shape
-@export var range: int
-@export var cell_validator: Validator
+@export var name: String = \"AbilityName\"
+@export var description: String = \"AbilityDescription\"
+@export var icon: Texture
 
-func validate_cell(_cell):
-	return true
+@export var has_cost: bool = true
+@export var cost: int = 1
 
-func validate_option_target(_value):
-	return true
+@export var has_range: bool = false
+@export var grid_range: int
+
+@export var has_damage: bool = false
+@export var damage: int
+
+@export var has_res: bool = false #resource
+@export var res: int
+@export var res_name: String
+
+@export var allow_multiple_uses_per_turn: bool = false
+var used: bool = false
+
+@export var input_steps: Array[AbilityInputStep]
+
+@export var command: GDScript #Command https://www.reddit.com/r/godot/comments/138el4k/using_scripts_via_an_export_variable/
+#@export var ability_input: AbilityInput
+#@export var ability_validator: AbilityResolver
 "
 
 [sub_resource type="Resource" id="Resource_4smfu"]
@@ -283,7 +265,7 @@ has_res = false
 res = 0
 res_name = ""
 allow_multiple_uses_per_turn = false
-input_steps = Array[SubResource("GDScript_dddca")]([])
+input_steps = []
 command = SubResource("GDScript_8bsjd")
 metadata/_custom_type_script = "uid://c6t3hnpdadva5"
 
@@ -336,6 +318,25 @@ func validate(origin:Vector2i, target:Vector2i) -> bool:
 	return true
 "
 
+[sub_resource type="GDScript" id="GDScript_dddca"]
+script/source = "extends Resource
+
+class_name AbilityInputStep
+
+@export var description: String
+@export var option_key: String
+@export var target: Enums.TargetType
+@export var shape: Enums.Shape
+@export var range: int
+@export var cell_validator: Validator
+
+func validate_cell(_cell):
+	return true
+
+func validate_option_target(_value):
+	return true
+"
+
 [sub_resource type="Resource" id="Resource_wbuox"]
 script = SubResource("GDScript_dddca")
 description = "Select a cell"
@@ -361,7 +362,7 @@ has_res = false
 res = 0
 res_name = ""
 allow_multiple_uses_per_turn = false
-input_steps = Array[SubResource("GDScript_dddca")]([SubResource("Resource_wbuox")])
+input_steps = [SubResource("Resource_wbuox")]
 command = SubResource("GDScript_brghf")
 metadata/_custom_type_script = "uid://c6t3hnpdadva5"
 
@@ -395,7 +396,7 @@ base_ap = 2
 base_move = 3
 move_ability = SubResource("Resource_mleiq")
 attack_ability = SubResource("Resource_4smfu")
-abilities = Array[SubResource("GDScript_086yp")]([])
+abilities = Array[ExtResource("2_voyn8")]([])
 metadata/_custom_type_script = "uid://48wwea18pjpn"
 
 [node name="BattleController" type="Node"]
