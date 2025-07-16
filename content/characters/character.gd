@@ -3,6 +3,7 @@ extends Resource
 class_name Character
 
 @export var portrait: Texture
+@export var sprite: Texture
 @export var name: String = "Charater"
 @export var description: String = "Charater Description"
 @export var maxhp: int = 3

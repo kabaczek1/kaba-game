@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bwkserwy23iuj" path="res://assets/tiny_rpg_character/Characters/Knight/Knight with shadows/Knight.png" id="4_pqawg"]
 [ext_resource type="Texture2D" uid="uid://c38758bfoa4f" path="res://assets/gfx/cursor4.png" id="5_wx72x"]
 [ext_resource type="Texture2D" uid="uid://d1u71njdcews8" path="res://assets/tiny_rpg_character/Characters/Archer/Archer with shadows/Archer.png" id="6_38dd7"]
-[ext_resource type="Script" uid="uid://dw3uxdinkfxex" path="res://gameplay/level/level.gd" id="7_s5kqo"]
+[ext_resource type="Script" uid="uid://dw3uxdinkfxex" path="res://gameplay2/level/level.gd" id="7_s5kqo"]
 [ext_resource type="Texture2D" uid="uid://cebl31cmtwbdy" path="res://assets/gfx/grid_indicator.png" id="8_wpitb"]
 [ext_resource type="Texture2D" uid="uid://c72vylj2lt30d" path="res://assets/pixel_art_top_down/TX Tileset Stone Ground.png" id="9_lx0il"]
 [ext_resource type="Texture2D" uid="uid://gbwnbjwo1t6m" path="res://assets/pixel_art_top_down/TX Tileset Grass.png" id="10_v1bdl"]

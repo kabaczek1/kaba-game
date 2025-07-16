@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlr3yp8km0wvb" path="res://autoloads/scene_controller.gd" id="1_kwtcs"]
 [ext_resource type="PackedScene" uid="uid://b4l7m17xct7e3" path="res://ui/scenes/transition_scene/transition_scene.tscn" id="2_lhphl"]
 [ext_resource type="PackedScene" uid="uid://ctomenwyrjhoy" path="res://ui/scenes/title_screen/title_screen.tscn" id="3_u8vdo"]
-[ext_resource type="PackedScene" uid="uid://b48mx451mxjpu" path="res://gameplay/battle/battle_scene.tscn" id="4_dy5yq"]
+[ext_resource type="PackedScene" uid="uid://b48mx451mxjpu" path="res://gameplay2/battle/battle_scene.tscn" id="4_dy5yq"]
 [ext_resource type="PackedScene" uid="uid://cs3tvg78kg6cj" path="res://ui/scenes/war_room_screen/war_room_screen.tscn" id="5_u8vdo"]
 [ext_resource type="PackedScene" uid="uid://dxjab43jpnclm" path="res://ui/scenes/world_map_screen/world_map_screen.tscn" id="6_dy5yq"]
 [ext_resource type="PackedScene" uid="uid://ybhvtxn40fph" path="res://ui/scenes/quarters_screen/quarters_screen.tscn" id="7_k6j3h"]

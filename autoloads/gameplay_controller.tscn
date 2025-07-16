@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvp8sxqdfj1ot"]
+
+[ext_resource type="Script" uid="uid://dqfklhnwmdu33" path="res://autoloads/gameplay_controller.gd" id="1_wg0f7"]
+[ext_resource type="PackedScene" uid="uid://de7veoaewj34o" path="res://gameplay/elements/unit/unit.tscn" id="2_alkct"]
+
+[node name="GameplayController" type="Node"]
+script = ExtResource("1_wg0f7")
+spawn_cells = Array[Vector2i]([Vector2i(1, 1), Vector2i(2, 2), Vector2i(3, 3), Vector2i(4, 4)])
+unit_scene = ExtResource("2_alkct")

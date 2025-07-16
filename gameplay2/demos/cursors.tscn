@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgu0f2uy8ls16"]
 
-[ext_resource type="Script" uid="uid://cj3fkkqn4f8bn" path="res://gameplay/demos/cursors.gd" id="1_egldt"]
+[ext_resource type="Script" uid="uid://cj3fkkqn4f8bn" path="res://gameplay2/demos/cursors.gd" id="1_egldt"]
 [ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://gameplay/elements/cursor/cursor.tscn" id="2_gs82v"]
 
 [node name="Cursors" type="Node" node_paths=PackedStringArray("cursor1", "cursor2", "cursor3", "cursor4", "cursor5")]

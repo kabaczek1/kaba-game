@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="dungeon-extraction"
-config/version="0.0.1"
+config/version="0.0.2"
 run/main_scene="res://main_scene.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="kaba-game"
@@ -32,6 +32,7 @@ SceneController="*res://autoloads/scene_controller.tscn"
 PauseController="*res://autoloads/pause_controller.tscn"
 MissionController="*res://autoloads/mission_controller.tscn"
 GlobalController="*res://autoloads/global_controller.tscn"
+GameplayController="*res://autoloads/gameplay_controller.tscn"
 
 [display]
 
@@ -57,7 +58,8 @@ folder_colors={
 "res://content/abilities/catch/": "purple",
 "res://content/abilities/move/": "teal",
 "res://exports/": "gray",
-"res://gameplay/": "blue",
+"res://gameplay/": "pink",
+"res://gameplay2/": "blue",
 "res://gfx/": "yellow",
 "res://ui/": "green"
 }

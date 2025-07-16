@@ -46,11 +46,11 @@ func _input(event):
 				EventBus.cursor_cell_clicked.emit(current_cell)
 
 func update_current_cell(event_position):
-	current_cell = main_grid.position_to_grid(event_position)
+	current_cell = main_grid.position_to_cell(event_position)
 
 func update_position(event_position):
-	current_cell = main_grid.position_to_grid(event_position)
-	var new_snapped_position = main_grid.grid_to_position(current_cell)
+	current_cell = main_grid.position_to_cell(event_position)
+	var new_snapped_position = main_grid.cell_to_position(current_cell)
 	if last_snapped_position != new_snapped_position:
 		var current_cell_on_the_main_grid = main_grid_region.has_point(current_cell)
 		move_cursor(new_snapped_position, current_cell_on_the_main_grid)
@@ -75,4 +75,4 @@ func move_cursor(new_position, overshoot_animation:bool = true):
 	tween.tween_property($".", "position", new_position, time_to_position)
 
 func move_cursor_to_cell(target_cell: Vector2i):
-	move_cursor(main_grid.grid_to_position(target_cell))
+	move_cursor(main_grid.cell_to_position(target_cell))

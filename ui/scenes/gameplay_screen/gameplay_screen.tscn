@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://u5hyw05xwsnk"]
+[gd_scene load_steps=3 format=3 uid="uid://u5hyw05xwsnk"]
 
 [ext_resource type="Script" uid="uid://ctgi0ceermsbj" path="res://ui/scenes/gameplay_screen/gameplay_screen.gd" id="1_cdmpl"]
+[ext_resource type="PackedScene" uid="uid://c8s3o4ih3mggl" path="res://gameplay/gameplay.tscn" id="2_i7oyx"]
 
-[node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button", "mission_label", "current_team_container")]
+[node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button", "mission_label", "current_team_container", "gameplay_node")]
 script = ExtResource("1_cdmpl")
 mission_summary_button = NodePath("MarginContainer/VBoxContainer/MissionSummaryButton")
 mission_label = NodePath("MarginContainer/VBoxContainer/MissionLabel")
 current_team_container = NodePath("MarginContainer/VBoxContainer/CurrentTeam")
+gameplay_node = NodePath("Gameplay")
+
+[node name="Gameplay" parent="." instance=ExtResource("2_i7oyx")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 640.0
@@ -19,6 +23,7 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
