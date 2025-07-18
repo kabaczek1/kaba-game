@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Room" load_steps=4 format=3 uid="uid://5bfg4s231jg4"]
+
+[ext_resource type="Script" uid="uid://b71vw3o7ucalg" path="res://content/characters/character.gd" id="1_hnlxu"]
+[ext_resource type="Script" uid="uid://cxblrrmt5kph6" path="res://content/rooms/room.gd" id="2_7rcwv"]
+[ext_resource type="PackedScene" uid="uid://bo85ijlkakuj8" path="res://content/missions/mission_1/room_1_1.tscn" id="2_ohjkv"]
+
+[resource]
+script = ExtResource("2_7rcwv")
+enemies = Array[ExtResource("1_hnlxu")]([])
+room_scene = ExtResource("2_ohjkv")
+metadata/_custom_type_script = "uid://cxblrrmt5kph6"

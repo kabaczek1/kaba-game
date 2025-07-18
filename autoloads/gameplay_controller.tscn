@@ -5,5 +5,4 @@
 
 [node name="GameplayController" type="Node"]
 script = ExtResource("1_wg0f7")
-spawn_cells = Array[Vector2i]([Vector2i(1, 1), Vector2i(2, 2), Vector2i(3, 3), Vector2i(4, 4)])
 unit_scene = ExtResource("2_alkct")

@@ -1,5 +1,8 @@
 # Changelog
 
+## 2025-07-18 (0.0.3)
+- basic level framework
+
 ## 2025-07-16 (0.0.2)
 - feat: added basic Unit representation
 - feat: added gameplay scene with basic Unit placing functionality

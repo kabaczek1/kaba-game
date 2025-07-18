@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mission" load_steps=7 format=3 uid="uid://c1xqn6lfgqrw5"]
+[gd_resource type="Resource" script_class="Mission" load_steps=8 format=3 uid="uid://c1xqn6lfgqrw5"]
 
 [ext_resource type="Script" uid="uid://vd5l2avjpl6v" path="res://content/items/item.gd" id="1_akv34"]
 [ext_resource type="Script" uid="uid://cywvg463h8uc3" path="res://content/missions/mission.gd" id="1_s4en0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bdrj5atydl6vd" path="res://content/items/cloak_of_haste/cloak_of_haste.tres" id="3_k4q4d"]
 [ext_resource type="Resource" uid="uid://cy46hpe1ivqn8" path="res://content/items/fire_orb/fire_orb.tres" id="4_0rfcx"]
 [ext_resource type="Resource" uid="uid://bl45wb50xq672" path="res://content/missions/mission_2/mission_2.tres" id="5_62da0"]
+[ext_resource type="Resource" uid="uid://5bfg4s231jg4" path="res://content/missions/mission_1/room_1_1.tres" id="7_k4q4d"]
 
 [resource]
 script = ExtResource("1_s4en0")
@@ -15,5 +16,6 @@ world_map_cell = Vector2i(2, 2)
 status = 1
 item_pool = Array[ExtResource("1_akv34")]([ExtResource("2_62da0"), ExtResource("3_k4q4d"), ExtResource("4_0rfcx")])
 item_available = false
+spawn_room = ExtResource("7_k4q4d")
 next_mission = ExtResource("5_62da0")
 metadata/_custom_type_script = "uid://cywvg463h8uc3"

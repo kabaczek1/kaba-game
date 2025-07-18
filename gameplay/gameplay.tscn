@@ -10,16 +10,20 @@ script = ExtResource("1_ueusv")
 [node name="MainGrid" parent="." instance=ExtResource("1_nyvx4")]
 unique_name_in_owner = true
 
+[node name="UnitContainer" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="RoomContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(16, 16)
+
 [node name="Cursor" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("2_41n4r")]
 unique_name_in_owner = true
 main_grid = NodePath("../MainGrid")
 
-[node name="UnitContainer" type="Node" parent="."]
-unique_name_in_owner = true
-
 [node name="Label" type="Label" parent="."]
-offset_left = 295.0
-offset_top = 171.0
-offset_right = 335.0
-offset_bottom = 186.0
+offset_left = 299.0
+offset_top = 328.0
+offset_right = 339.0
+offset_bottom = 343.0
 text = "GAMIGN"

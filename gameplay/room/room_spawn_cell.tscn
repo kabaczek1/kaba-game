@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckb3dwxmp32cs"]
+
+[ext_resource type="Texture2D" uid="uid://5gpexxbn1hsc" path="res://assets/gfx/cursor1.png" id="1_3hcdt"]
+
+[node name="RoomSpawnCell" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3hcdt")
