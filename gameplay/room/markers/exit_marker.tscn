@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cibepg28r1es7"]
+
+[ext_resource type="PackedScene" uid="uid://doqllepo6get1" path="res://gameplay/room/markers/tile_marker.tscn" id="1_ug4ds"]
+
+[node name="ExitMarker" instance=ExtResource("1_ug4ds")]
+label = "exit"

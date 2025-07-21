@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtqh07h7y3e4d"]
+
+[ext_resource type="PackedScene" uid="uid://doqllepo6get1" path="res://gameplay/room/markers/tile_marker.tscn" id="1_wryg2"]
+
+[node name="EnemySpawnMarker" instance=ExtResource("1_wryg2")]
+label = "enemy_spawn"

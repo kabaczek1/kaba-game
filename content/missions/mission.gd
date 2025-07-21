@@ -9,7 +9,7 @@ class_name Mission
 @export_enum("completed", "available", "unavailable") var status: int = 2
 @export var item_pool: Array[Item]
 @export var item_available: bool = false
-@export var spawn_room: Room
+@export var spawn_room: PackedScene
 @export var next_mission: Mission
 
 func complete_mission():

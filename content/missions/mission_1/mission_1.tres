@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bdrj5atydl6vd" path="res://content/items/cloak_of_haste/cloak_of_haste.tres" id="3_k4q4d"]
 [ext_resource type="Resource" uid="uid://cy46hpe1ivqn8" path="res://content/items/fire_orb/fire_orb.tres" id="4_0rfcx"]
 [ext_resource type="Resource" uid="uid://bl45wb50xq672" path="res://content/missions/mission_2/mission_2.tres" id="5_62da0"]
-[ext_resource type="Resource" uid="uid://5bfg4s231jg4" path="res://content/missions/mission_1/room_1_1.tres" id="7_k4q4d"]
+[ext_resource type="PackedScene" uid="uid://crrky5l80m7jl" path="res://content/missions/mission_1/room_1_1.tscn" id="7_k4q4d"]
 
 [resource]
 script = ExtResource("1_s4en0")

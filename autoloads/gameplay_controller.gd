@@ -2,14 +2,13 @@ extends Node
 
 @export var unit_scene: PackedScene
 
-var spawn_cells: Array[Vector2i] #?
 var gameplay_node
+var current_room_instance
 	
 func load_gameplay_node(_gameplay_node):
 	gameplay_node = _gameplay_node
-	print(gameplay_node.main_grid)
 	setup_units() # temp temp !!!
-	setup_level()
+	setup_room()
 	
 func cell_to_position(cell: Vector2i):
 	return gameplay_node.main_grid.cell_to_position(cell)
@@ -27,14 +26,12 @@ func setup_units():
 		gameplay_node.unit_container.add_child(unit)
 		i+=1
 
-func setup_level():
-	var room_scene = MissionController.current_mission.spawn_room.room_scene
-	var room_instance = room_scene.instantiate()
-	gameplay_node.room_container.add_child(room_instance)
-	print(room_instance.get_children())
+func setup_room():
+	var room = MissionController.current_mission.spawn_room
+	current_room_instance = room.instantiate()
+	gameplay_node.room_container.add_child(current_room_instance)
+	print("entrance_cell", current_room_instance.entrance_cell)
+	print("exit_cell", current_room_instance.exit_cell)
+	print("ally_spawn_cells", current_room_instance.ally_spawn_cells)
+	print("enemy_spawn_cells", current_room_instance.enemy_spawn_cells)
 	
-	
-#func setup_grid():
-	## spawn units
-	#for character in GlobalController.team:
-		

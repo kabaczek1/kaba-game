@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wg8r3mbkkwi5"]
+
+[ext_resource type="PackedScene" uid="uid://doqllepo6get1" path="res://gameplay/room/markers/tile_marker.tscn" id="1_qebmy"]
+
+[node name="AllySpawnMarker" instance=ExtResource("1_qebmy")]
+label = "ally_spawn"
