@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://7mwlaa5o4fv5"]
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://7mwlaa5o4fv5"]
 
 [ext_resource type="Resource" uid="uid://c3hbe64ul1lbo" path="res://content/abilities/attack/sword/sword.tres" id="1_754wt"]
 [ext_resource type="Script" uid="uid://b71vw3o7ucalg" path="res://content/characters/character.gd" id="1_xnv6o"]
 [ext_resource type="Resource" uid="uid://8qrk6r1kkpkk" path="res://content/abilities/catch/capture/capture.tres" id="2_qfhc1"]
 [ext_resource type="Resource" uid="uid://bkcfag8dn4t63" path="res://content/abilities/move/walk/walk.tres" id="3_iqwps"]
+[ext_resource type="Texture2D" uid="uid://bmq8ecywk1m46" path="res://assets/gfx/cursor2.png" id="5_qfhc1"]
 
 [resource]
 script = ExtResource("1_xnv6o")
+sprite = ExtResource("5_qfhc1")
 name = "Rex"
 description = "Cool fella"
 maxhp = 4

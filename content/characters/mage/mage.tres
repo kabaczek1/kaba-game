@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://n82wk5w6q31"]
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://n82wk5w6q31"]
 
 [ext_resource type="Resource" uid="uid://c3hbe64ul1lbo" path="res://content/abilities/attack/sword/sword.tres" id="1_lthdu"]
 [ext_resource type="Script" uid="uid://b71vw3o7ucalg" path="res://content/characters/character.gd" id="1_nl246"]
 [ext_resource type="Resource" uid="uid://8qrk6r1kkpkk" path="res://content/abilities/catch/capture/capture.tres" id="2_g3mr5"]
 [ext_resource type="Resource" uid="uid://bkcfag8dn4t63" path="res://content/abilities/move/walk/walk.tres" id="3_uyho8"]
+[ext_resource type="Texture2D" uid="uid://jlb70ugqwqns" path="res://assets/gfx/cursor3.png" id="5_g3mr5"]
 
 [resource]
 script = ExtResource("1_nl246")
+sprite = ExtResource("5_g3mr5")
 name = "Valeria"
 description = "Magic princess"
 maxhp = 2

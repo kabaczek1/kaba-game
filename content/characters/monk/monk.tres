@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://hcqavpxjpqjb"]
+[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://hcqavpxjpqjb"]
 
 [ext_resource type="Resource" uid="uid://c3hbe64ul1lbo" path="res://content/abilities/attack/sword/sword.tres" id="1_k8evh"]
 [ext_resource type="Script" uid="uid://b71vw3o7ucalg" path="res://content/characters/character.gd" id="1_x2p52"]
 [ext_resource type="Resource" uid="uid://8qrk6r1kkpkk" path="res://content/abilities/catch/capture/capture.tres" id="2_ym4vl"]
 [ext_resource type="Resource" uid="uid://bkcfag8dn4t63" path="res://content/abilities/move/walk/walk.tres" id="3_u6nk3"]
 [ext_resource type="Resource" uid="uid://cy46hpe1ivqn8" path="res://content/items/fire_orb/fire_orb.tres" id="3_ym4vl"]
+[ext_resource type="Texture2D" uid="uid://c38758bfoa4f" path="res://assets/gfx/cursor4.png" id="6_u6nk3"]
 
 [resource]
 script = ExtResource("1_x2p52")
+sprite = ExtResource("6_u6nk3")
 name = "Elijah"
 description = "Sad little guy"
 maxhp = 3

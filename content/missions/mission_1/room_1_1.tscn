@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://8u1mx35k8mgj" path="res://gameplay/room/room.tscn" id="1_ludrj"]
 [ext_resource type="PackedScene" uid="uid://dbx5jsa5xriui" path="res://content/missions/mission_1/room_1_2.tscn" id="2_8xxit"]
 
-[node name="Room" instance=ExtResource("1_ludrj")]
+[node name="Room2" instance=ExtResource("1_ludrj")]
 next_room = ExtResource("2_8xxit")
 
 [node name="Layout" parent="." index="1"]

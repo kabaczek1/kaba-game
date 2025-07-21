@@ -27,11 +27,16 @@ texture = ExtResource("2_26v8h")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
+1:0/0/custom_data_0 = 1
 0:1/0 = 0
+0:1/0/custom_data_0 = 2
 1:1/0 = 0
+1:1/0/custom_data_0 = 3
 
 [sub_resource type="TileSet" id="TileSet_7ci1y"]
 tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 2
 sources/1 = SubResource("TileSetAtlasSource_0xobt")
 
 [node name="Room" type="Node2D"]
@@ -39,7 +44,7 @@ script = ExtResource("1_bbgrt")
 
 [node name="Markers" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAABAASAAQAAAAAAAAABQACAAMAAAAAAAAAAgAEAAMAAAAAAAAAAgAEAAUAAAAAAAAAAgACAAUAAAAAAAAAAgAOAAIAAAAAAAAAAwAOAAQAAAAAAAAAAwAOAAYAAAAAAAAAAwA=")
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAABAASAAQAAAAAAAAABQACAAMAAAAAAAAAAgAEAAMAAAAAAAAAAgAEAAUAAAAAAAAAAgACAAUAAAAAAAAAAgAOAAIAAAAAAAAAAwAOAAQAAAAAAAAAAwAOAAYAAAAAAAAAAwADAAQAAAAAAAAAAgA=")
 tile_set = SubResource("TileSet_jt3jd")
 
 [node name="Layout" type="TileMapLayer" parent="."]

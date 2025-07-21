@@ -1,5 +1,11 @@
 # Changelog
 
+## 2025-07-18 (0.0.4)
+- basic room framework
+- spawn units
+- setup gamestate
+- add Tile class
+
 ## 2025-07-18 (0.0.3)
 - basic level framework
 
