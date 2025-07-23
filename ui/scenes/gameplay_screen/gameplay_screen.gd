@@ -7,9 +7,7 @@ extends Node2D
 
 func _ready() -> void:
 	mission_summary_button.pressed.connect(func ():
-		print(mission_summary_button)
-		MissionController.complete_mission() # temp?
-		SceneController.go_to_mission_summary() 
+		GameplayController.end_mission_gameplay()
 	)
 	mission_label.text = MissionController.current_mission.name
 	

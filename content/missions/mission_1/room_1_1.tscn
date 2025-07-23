@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=4 uid="uid://crrky5l80m7jl"]
+[gd_scene load_steps=5 format=4 uid="uid://crrky5l80m7jl"]
 
 [ext_resource type="PackedScene" uid="uid://8u1mx35k8mgj" path="res://gameplay/room/room.tscn" id="1_ludrj"]
 [ext_resource type="PackedScene" uid="uid://dbx5jsa5xriui" path="res://content/missions/mission_1/room_1_2.tscn" id="2_8xxit"]
+[ext_resource type="Script" uid="uid://b71vw3o7ucalg" path="res://content/characters/character.gd" id="2_lj3kp"]
+[ext_resource type="Resource" uid="uid://cop5m5bqf8leb" path="res://content/characters/tank/tank.tres" id="3_0eggf"]
 
 [node name="Room2" instance=ExtResource("1_ludrj")]
+enemies = Array[ExtResource("2_lj3kp")]([ExtResource("3_0eggf"), ExtResource("3_0eggf"), ExtResource("3_0eggf")])
 next_room = ExtResource("2_8xxit")
 
 [node name="Layout" parent="." index="1"]

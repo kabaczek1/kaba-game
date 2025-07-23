@@ -21,7 +21,6 @@ func load_tile_markers() -> void:
 	markers.update_internals()
 	var tile_markers = markers.get_children()
 	for m in tile_markers:
-		#print(m.label, GameplayController.position_to_cell( m.position))
 		var cell = GameplayController.position_to_cell(m.position)
 		match m.label:
 			"entrance":

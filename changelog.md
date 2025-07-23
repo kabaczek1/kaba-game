@@ -1,6 +1,11 @@
 # Changelog
 
-## 2025-07-18 (0.0.4)
+## 2025-07-23 (0.0.5)
+- add enemy spawn
+- add traverse through rooms (mock button)
+- enchance room framework (clear between rooms)
+
+## 2025-07-21 (0.0.4)
 - basic room framework
 - spawn units
 - setup gamestate
