@@ -1,7 +1,5 @@
 extends Node
 
-class_name PlayerInputController
-
 @export var state_machine: StateMachine
 
 var idle_state

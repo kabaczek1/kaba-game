@@ -5,6 +5,9 @@ extends Node
 var gameplay_node: Node2D
 var current_room_scene: PackedScene
 var current_room_instance: Room
+
+var selected_unit: Unit
+
 var ally_units: Array[Unit]
 var enemy_units: Array[Unit]
 var gamestate: Dictionary[Vector2i, Tile]
@@ -90,4 +93,17 @@ func cell_to_position(cell: Vector2i):
 func position_to_cell(position: Vector2):
 	return gameplay_node.main_grid.position_to_cell(position)
 #endregion
-	
+
+
+#region unit selection
+func select_unit_by_cell(cell: Vector2i):
+	var unit = gamestate[cell].unit
+	if unit:
+		selected_unit = unit
+		EventBus.unit_selected.emit(selected_unit)
+
+func  deselect_unit():
+	selected_unit = null
+	EventBus.unit_deselected.emit()
+
+#endregion

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2025-07-24 (0.0.6)
+- unit selection framework
+- reach validator design
+
 ## 2025-07-23 (0.0.5)
 - add enemy spawn
 - add traverse through rooms (mock button)

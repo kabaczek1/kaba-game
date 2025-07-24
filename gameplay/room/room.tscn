@@ -10,13 +10,9 @@
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7ci1y"]
 resource_name = "markers"
 scenes/2/scene = ExtResource("2_txnqu")
-scenes/2/display_placeholder = ExtResource("2_txnqu")
 scenes/3/scene = ExtResource("3_gbmqg")
-scenes/3/display_placeholder = ExtResource("3_gbmqg")
 scenes/4/scene = ExtResource("4_crflr")
-scenes/4/display_placeholder = ExtResource("4_crflr")
 scenes/5/scene = ExtResource("5_y4wyc")
-scenes/5/display_placeholder = ExtResource("5_y4wyc")
 
 [sub_resource type="TileSet" id="TileSet_jt3jd"]
 tile_size = Vector2i(32, 32)

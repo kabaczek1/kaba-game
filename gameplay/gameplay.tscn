@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8s3o4ih3mggl"]
+[gd_scene load_steps=5 format=3 uid="uid://c8s3o4ih3mggl"]
 
 [ext_resource type="PackedScene" uid="uid://m3wk12ojpscj" path="res://gameplay/elements/main_grid/main_grid.tscn" id="1_nyvx4"]
 [ext_resource type="Script" uid="uid://c7q0d7ysjj6eh" path="res://gameplay/gameplay.gd" id="1_ueusv"]
 [ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://gameplay/elements/cursor/cursor.tscn" id="2_41n4r"]
+[ext_resource type="Script" uid="uid://dmgadsgwwv1k4" path="res://gameplay/player_input_controller.gd" id="2_ktb3l"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_ueusv")
+
+[node name="PlayerInputController" type="Node" parent="."]
+script = ExtResource("2_ktb3l")
 
 [node name="MainGrid" parent="." instance=ExtResource("1_nyvx4")]
 unique_name_in_owner = true
