@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("1_cvvbm")
+portrait = ExtResource("5_n44eg")
 sprite = ExtResource("5_n44eg")
 name = "Hubert"
 description = "Faithful dude"

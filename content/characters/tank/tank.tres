@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("1_lk3up")
+portrait = ExtResource("5_gs16h")
 sprite = ExtResource("5_gs16h")
 name = "Bufort"
 description = "Absolute unit"

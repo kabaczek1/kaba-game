@@ -11,11 +11,11 @@ func _init(_state_machine: StateMachine, _name: String = "State") -> void:
 	assert(state_machine != null, "state_machine not set")
 
 func enter():
-	#print("STATE Enter  : ", name)
+	print("STATE Enter  : ", name)
 	pass
 
 func exit():
-	#print("STATE Exit   : ", name)
+	print("STATE Exit   : ", name)
 	pass
 
 func handle_input(_event):

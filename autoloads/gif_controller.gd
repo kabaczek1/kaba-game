@@ -8,7 +8,7 @@ var camera
 var ssCount = 1
 var gif_recording = false
 var gifFramerate = 30 #fps
-var record_region = Rect2i(0,0,320,320)
+var record_region = Rect2i(0,0,640,360)
 
 func _ready() -> void:
 	camera = Camera2D.new()

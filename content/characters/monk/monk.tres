@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("1_x2p52")
+portrait = ExtResource("6_u6nk3")
 sprite = ExtResource("6_u6nk3")
 name = "Elijah"
 description = "Sad little guy"

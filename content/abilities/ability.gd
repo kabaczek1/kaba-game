@@ -8,6 +8,7 @@ class_name Ability
 @export var description: String = "Ability Description"
 @export var type: Enums.AbilityType
 @export var reach_validator: GDScript
+@export var target_validator: GDScript
 # script
 # effect_scene???
 # range_validator

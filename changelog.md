@@ -1,5 +1,10 @@
 # Changelog
 
+## 2025-07-29 (0.0.7)
+- state machine based player input
+- ability validators
+- grid area indicators
+
 ## 2025-07-24 (0.0.6)
 - unit selection framework
 - reach validator design

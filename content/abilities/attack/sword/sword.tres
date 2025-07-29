@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=2 format=3 uid="uid://c3hbe64ul1lbo"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://c3hbe64ul1lbo"]
 
 [ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="1_m4vpk"]
+[ext_resource type="Texture2D" uid="uid://bsnb15c7bgn2f" path="res://assets/gfx/x.png" id="1_m788e"]
 
 [resource]
 script = ExtResource("1_m4vpk")
+icon = ExtResource("1_m788e")
 name = "Sword"
 reach = 1
 description = "Ability Description"

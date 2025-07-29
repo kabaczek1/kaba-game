@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bikg0ja30f3to"]
+
+[ext_resource type="Script" uid="uid://dmgadsgwwv1k4" path="res://gameplay/elements/player_input_controller/player_input_controller.gd" id="1_jr54h"]
+[ext_resource type="PackedScene" uid="uid://p4vck1c2j5o6" path="res://gameplay/elements/state_machine/state_machine.tscn" id="2_xkwnf"]
+
+[node name="PlayerInputController" type="Node" node_paths=PackedStringArray("state_machine")]
+script = ExtResource("1_jr54h")
+state_machine = NodePath("StateMachine")
+
+[node name="StateMachine" parent="." instance=ExtResource("2_xkwnf")]

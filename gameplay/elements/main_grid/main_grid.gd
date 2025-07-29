@@ -25,7 +25,8 @@ func is_on_the_grid(cell: Vector2i) -> bool:
 func get_circle_around_cell(size: int, origin_cell: Vector2i) -> Array[Vector2i]:
 	var output: Array[Vector2i] = []
 	for cell in get_circle(size):
-		output.append(cell + origin_cell)
+		if grid_region.has_point(cell + origin_cell):
+			output.append(cell + origin_cell)
 	return output
 
 func get_circle(size: int) -> Array[Vector2i]:

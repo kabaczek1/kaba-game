@@ -24,15 +24,14 @@ signal state_entered(name: String)
 signal unit_movement_animation_ended(unit: GridUnit)
 signal unit_movement_animation_started(unit: GridUnit)
 
-signal unit_selected(unit: GridUnit)
-signal unit_deselected(unit: GridUnit)
-signal unit_glance_started(unit: GridUnit)
-signal unit_glance_stopped(unit: GridUnit)
+signal unit_selected(unit: Unit)
+signal unit_deselected(unit: Unit)
+signal unit_hover_started(unit: Unit)
+signal unit_hover_stopped(unit: Unit)
 
 signal unit_cell_changed(unit: GridUnit)
 
 signal player_turn_started()
 signal player_turn_ended()
 
-signal battle_scene_loaded(bs: BattleScene)
 @warning_ignore_restore("unused_signal")

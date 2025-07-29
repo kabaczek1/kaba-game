@@ -5,7 +5,6 @@ signal scene_loaded()
 @export var transition_scene: PackedScene
 
 @export var title_screen: PackedScene
-@export var battle_scene: PackedScene
 
 @export var war_room_screen: PackedScene
 @export var world_map_screen: PackedScene
@@ -15,9 +14,6 @@ signal scene_loaded()
 @export var mission_summary_screen: PackedScene
 
 var in_transition = false
-
-func change_to_battle_scene():
-	change_to_scene(battle_scene)
 
 func go_to_war_room():
 	change_to_scene(war_room_screen)

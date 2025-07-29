@@ -1,26 +1,51 @@
-[gd_scene load_steps=31 format=4 uid="uid://b48mx451mxjpu"]
+[gd_scene load_steps=41 format=4 uid="uid://dd4823u8wnwnt"]
 
-[ext_resource type="Script" uid="uid://ca6lbv6ho6i3w" path="res://gameplay/battle/battle_scene.gd" id="1_jsb77"]
-[ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://gameplay/elements/grid_border/grid_border.tscn" id="1_rwmwe"]
-[ext_resource type="PackedScene" uid="uid://m3wk12ojpscj" path="res://gameplay/elements/main_grid/main_grid.tscn" id="2_6gr02"]
-[ext_resource type="Script" uid="uid://bivkuto7qe18q" path="res://gameplay/battle/player_input_controller.gd" id="3_p7cbp"]
-[ext_resource type="PackedScene" uid="uid://lywadmnap1si" path="res://gameplay/elements/offset_grid/offset_layer.tscn" id="4_m36fw"]
-[ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://gameplay/elements/cursor/cursor.tscn" id="5_4aiie"]
-[ext_resource type="PackedScene" uid="uid://p4vck1c2j5o6" path="res://gameplay/elements/state_machine/state_machine.tscn" id="5_pjlqy"]
-[ext_resource type="Texture2D" uid="uid://dl2cs3lvrregl" path="res://assets/gfx/minitiles2.png" id="7_idx7o"]
-[ext_resource type="PackedScene" uid="uid://boh054d66rghm" path="res://gameplay/elements/grid_path/grid_path.tscn" id="7_lpvet"]
-[ext_resource type="Texture2D" uid="uid://dqhbhn1lvwwp" path="res://assets/gfx/gridpath.png" id="8_7wmn6"]
-[ext_resource type="PackedScene" uid="uid://cvyopryrveynx" path="res://gameplay/elements/grid_navigation/grid_navigation.tscn" id="9_m2irc"]
-[ext_resource type="Texture2D" uid="uid://gbwnbjwo1t6m" path="res://assets/pixel_art_top_down/TX Tileset Grass.png" id="12_5q0et"]
-[ext_resource type="Texture2D" uid="uid://c72vylj2lt30d" path="res://assets/pixel_art_top_down/TX Tileset Stone Ground.png" id="13_5blq7"]
-[ext_resource type="Texture2D" uid="uid://ccadt0fshbgla" path="res://assets/pixel_art_top_down/TX Tileset Wall.png" id="13_8ht5o"]
-[ext_resource type="Theme" uid="uid://d3h4xuvhedvse" path="res://ui/custom_theme.tres" id="13_ahsri"]
-[ext_resource type="Texture2D" uid="uid://c38758bfoa4f" path="res://assets/gfx/cursor4.png" id="14_02yle"]
-[ext_resource type="Texture2D" uid="uid://cebl31cmtwbdy" path="res://assets/gfx/grid_indicator.png" id="14_7ei26"]
-[ext_resource type="Script" uid="uid://5bwh877meavf" path="res://gameplay/battle/unit_panel.gd" id="15_cl70o"]
-[ext_resource type="Script" uid="uid://quboifp8a3lk" path="res://gameplay/battle/end_turn_button.gd" id="16_02yle"]
-[ext_resource type="Script" uid="uid://b216sgsju4xpb" path="res://gameplay/battle/info_box.gd" id="18_ahsri"]
-[ext_resource type="PackedScene" uid="uid://boit3nwd5y50b" path="res://ui/elements/ability_button.tscn" id="18_ep1oh"]
+[ext_resource type="Script" uid="uid://dlr3yp8km0wvb" path="res://autoloads/scene_controller.gd" id="1_kwtcs"]
+[ext_resource type="PackedScene" uid="uid://b4l7m17xct7e3" path="res://ui/scenes/transition_scene/transition_scene.tscn" id="2_lhphl"]
+[ext_resource type="PackedScene" uid="uid://ctomenwyrjhoy" path="res://ui/scenes/title_screen/title_screen.tscn" id="3_u8vdo"]
+[ext_resource type="PackedScene" uid="uid://p4vck1c2j5o6" path="res://gameplay/elements/state_machine/state_machine.tscn" id="4_186qt"]
+[ext_resource type="PackedScene" uid="uid://cvyopryrveynx" path="res://gameplay/elements/grid_navigation/grid_navigation.tscn" id="5_2awv8"]
+[ext_resource type="PackedScene" uid="uid://cs3tvg78kg6cj" path="res://ui/scenes/war_room_screen/war_room_screen.tscn" id="5_u8vdo"]
+[ext_resource type="PackedScene" uid="uid://dxjab43jpnclm" path="res://ui/scenes/world_map_screen/world_map_screen.tscn" id="6_dy5yq"]
+[ext_resource type="PackedScene" uid="uid://m3wk12ojpscj" path="res://gameplay/elements/main_grid/main_grid.tscn" id="6_ij36y"]
+[ext_resource type="PackedScene" uid="uid://lywadmnap1si" path="res://gameplay/elements/offset_grid/offset_layer.tscn" id="7_ata7k"]
+[ext_resource type="PackedScene" uid="uid://ybhvtxn40fph" path="res://ui/scenes/quarters_screen/quarters_screen.tscn" id="7_k6j3h"]
+[ext_resource type="PackedScene" uid="uid://cruyqcha84rgh" path="res://ui/scenes/magic_workshop_screen/magic_workshop_screen.tscn" id="7_y0acf"]
+[ext_resource type="Texture2D" uid="uid://dl2cs3lvrregl" path="res://assets/gfx/minitiles2.png" id="8_fin44"]
+[ext_resource type="PackedScene" uid="uid://u5hyw05xwsnk" path="res://ui/scenes/gameplay_screen/gameplay_screen.tscn" id="9_32xts"]
+[ext_resource type="PackedScene" uid="uid://boh054d66rghm" path="res://gameplay/elements/grid_path/grid_path.tscn" id="9_abmct"]
+[ext_resource type="PackedScene" uid="uid://3sgbsyuxb78f" path="res://ui/scenes/mission_summary_screen/mission_summary_screen.tscn" id="10_jw6f5"]
+[ext_resource type="Texture2D" uid="uid://dqhbhn1lvwwp" path="res://assets/gfx/gridpath.png" id="10_uwxqd"]
+[ext_resource type="PackedScene" uid="uid://c3357rt5yqelw" path="res://gameplay/elements/cursor/cursor.tscn" id="11_6oo6b"]
+[ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://gameplay/elements/grid_border/grid_border.tscn" id="12_bl6lu"]
+[ext_resource type="Texture2D" uid="uid://cebl31cmtwbdy" path="res://assets/gfx/grid_indicator.png" id="13_cm0ic"]
+[ext_resource type="Texture2D" uid="uid://c72vylj2lt30d" path="res://assets/pixel_art_top_down/TX Tileset Stone Ground.png" id="14_jb3bw"]
+[ext_resource type="Texture2D" uid="uid://gbwnbjwo1t6m" path="res://assets/pixel_art_top_down/TX Tileset Grass.png" id="15_a3hop"]
+[ext_resource type="Texture2D" uid="uid://ccadt0fshbgla" path="res://assets/pixel_art_top_down/TX Tileset Wall.png" id="16_x8kuh"]
+[ext_resource type="Theme" uid="uid://d3h4xuvhedvse" path="res://ui/custom_theme.tres" id="17_kkioh"]
+[ext_resource type="PackedScene" uid="uid://boit3nwd5y50b" path="res://ui/elements/ability_button.tscn" id="18_ca2xe"]
+[ext_resource type="Texture2D" uid="uid://c38758bfoa4f" path="res://assets/gfx/cursor4.png" id="19_g6t1m"]
+
+[sub_resource type="GDScript" id="GDScript_nu1d2"]
+script/source = "extends Node2D
+
+class_name BattleScene
+
+@export var main_grid: MainGrid
+@export var range_grid: OffsetGrid
+@export var obstacle_grid: OffsetGrid
+@export var grid_path: GridPath
+@export var grid_navigation: GridNavigation
+@export var cursor: Cursor
+@export var info_box: InfoBox
+
+@export var level_container: Node2D
+@export var teams_container: Node
+
+func _ready() -> void:
+	EventBus.battle_scene_loaded.emit(self)
+	EventBus.scene_loaded.emit()
+"
 
 [sub_resource type="GDScript" id="GDScript_wfee2"]
 script/source = "extends Node
@@ -77,9 +102,30 @@ func _ready() -> void:
 	
 "
 
+[sub_resource type="GDScript" id="GDScript_liw8g"]
+script/source = "extends Node
+
+@export var state_machine: StateMachine
+
+var idle_state
+
+func _ready() -> void:
+	EventBus.cursor_cell_changed.connect(func (cell):
+		state_machine.state.handle_cursor_move(cell)
+	)
+	EventBus.cursor_cell_clicked.connect(func (cell):
+		state_machine.state.handle_cursor_click(cell)
+	)
+	EventBus.player_turn_started.connect(func ():
+		state_machine.set_default_state_and_push(idle_state)
+	)
+	#idle_state = IdleState.new(state_machine)
+	#state_machine.set_default_state_and_push(idle_state)
+"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia62k"]
 resource_name = "test"
-texture = ExtResource("7_idx7o")
+texture = ExtResource("8_fin44")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
@@ -95,17 +141,17 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_ia62k")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ytsmm"]
-atlas = ExtResource("8_7wmn6")
+atlas = ExtResource("10_uwxqd")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvq4d"]
-texture = ExtResource("14_7ei26")
+texture = ExtResource("13_cm0ic")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q0et"]
 resource_name = "Stone"
-texture = ExtResource("13_5blq7")
+texture = ExtResource("14_jb3bw")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -460,7 +506,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ht5o"]
 resource_name = "Grass"
-texture = ExtResource("12_5q0et")
+texture = ExtResource("15_a3hop")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1151,7 +1197,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dftlm"]
 resource_name = "Wall"
-texture = ExtResource("13_8ht5o")
+texture = ExtResource("16_x8kuh")
 texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 2:1/0 = 0
@@ -1231,166 +1277,108 @@ sources/1 = SubResource("TileSetAtlasSource_5q0et")
 sources/2 = SubResource("TileSetAtlasSource_8ht5o")
 sources/3 = SubResource("TileSetAtlasSource_dftlm")
 
-[node name="BattleScene" type="Node2D" node_paths=PackedStringArray("main_grid", "range_grid", "obstacle_grid", "grid_path", "grid_navigation", "cursor", "info_box", "level_container", "teams_container")]
-script = ExtResource("1_jsb77")
-main_grid = NodePath("MainGrid")
-range_grid = NodePath("GridIndicators/RangeGrid")
-obstacle_grid = NodePath("GridIndicators/ObstacleGrid")
-grid_path = NodePath("GridIndicators/GridPath")
-grid_navigation = NodePath("GridNavigation")
-cursor = NodePath("GridIndicators/Cursor")
-info_box = NodePath("UI/InfoBox")
-level_container = NodePath("LevelContainer")
-teams_container = NodePath("TeamsContainer")
+[sub_resource type="GDScript" id="GDScript_t4sny"]
+script/source = "extends HBoxContainer
 
-[node name="AbilityInputController" type="Node" parent="." node_paths=PackedStringArray("state_machine")]
-script = SubResource("GDScript_wfee2")
-state_machine = NodePath("StateMachine")
+@export var icon: TextureRect
+@export var name_label: Label
+@export var move_label: Label
+@export var ap_label: Label
+@export var hp_label: Label
+@export var ability_buttons: Container
 
-[node name="StateMachine" parent="AbilityInputController" instance=ExtResource("5_pjlqy")]
+@export var ability_button_scene: PackedScene
 
-[node name="PlayerInputController" type="Node" parent="." node_paths=PackedStringArray("state_machine")]
-script = ExtResource("3_p7cbp")
-state_machine = NodePath("PIStateMachine")
+const move_format: String = \"MOVE:%d\"
+const ap_format: String = \"AP:%d\"
+const hp_format: String = \"HP:%d\"
 
-[node name="PIStateMachine" parent="PlayerInputController" instance=ExtResource("5_pjlqy")]
+func _ready() -> void:
+	hide()
+	EventBus.unit_selected.connect(_on_unit_selected)
+	EventBus.unit_deselected.connect(_on_unit_deselected)
+	EventBus.unit_glance_started.connect(_on_unit_selected)
+	EventBus.unit_glance_stopped.connect(_on_unit_deselected)
 
-[node name="GridNavigation" parent="." node_paths=PackedStringArray("main_grid", "obstacle_grid") instance=ExtResource("9_m2irc")]
-main_grid = NodePath("../MainGrid")
-obstacle_grid = NodePath("../GridIndicators/ObstacleGrid")
+func _on_unit_selected(unit):
+	show()
+	icon.texture = unit.unit_res.icon
+	name_label.text = unit.unit_res.name
+	move_label.text = move_format % unit.speed
+	hp_label.text = hp_format % unit.unit_res.base_hp
+	ap_label.text = ap_format % unit.unit_res.base_ap
+	var move_button_instance = ability_button_scene.instantiate()
+	move_button_instance.set_ability(unit.unit_res.move_ability)
+	ability_buttons.add_child(move_button_instance)
+	var attack_button_instance = ability_button_scene.instantiate()
+	attack_button_instance.set_ability(unit.unit_res.attack_ability)
+	ability_buttons.add_child(attack_button_instance)
+	for ability in unit.unit_res.abilities:
+		var ability_button_instance = ability_button_scene.instantiate()
+		ability_button_instance.set_ability(ability)
+		ability_buttons.add_child(ability_button_instance)
 
-[node name="MainGrid" parent="." instance=ExtResource("2_6gr02")]
+func _on_unit_deselected(_unit):
+	hide()
+	var buttons = ability_buttons.get_children()
+	for b in buttons:
+		b.queue_free()
+"
 
-[node name="LevelContainer" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.501961)
-position = Vector2(16, 16)
+[sub_resource type="GDScript" id="GDScript_pwien"]
+script/source = "extends Button
 
-[node name="TeamsContainer" type="Node" parent="."]
+func _ready() -> void:
+	EventBus.player_turn_started.connect(on_player_turn_started)
 
-[node name="GridIndicators" type="Node2D" parent="."]
+func _pressed() -> void:
+	disabled = true
+	EventBus.player_turn_ended.emit()
 
-[node name="RangeGrid" parent="GridIndicators" instance=ExtResource("4_m36fw")]
-position = Vector2(16, 16)
+func on_player_turn_started():
+	print(\"test\")
+	disabled = false
+"
 
-[node name="ObstacleGrid" parent="GridIndicators" instance=ExtResource("4_m36fw")]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(16, 16)
-tile_set = SubResource("TileSet_j71w7")
+[sub_resource type="GDScript" id="GDScript_mlweh"]
+script/source = "extends MarginContainer
 
-[node name="GridPath" parent="GridIndicators" node_paths=PackedStringArray("tile_map") instance=ExtResource("7_lpvet")]
-tile_map = NodePath("../../MainGrid")
-texture = SubResource("AtlasTexture_ytsmm")
+class_name InfoBox
 
-[node name="Cursor" parent="GridIndicators" node_paths=PackedStringArray("main_grid") instance=ExtResource("5_4aiie")]
-main_grid = NodePath("../../MainGrid")
+@export var label: Label
 
-[node name="UI" type="CanvasLayer" parent="."]
+func display(_text: String) -> bool:
+	label.text = _text
+	var tween = self.create_tween()
+	tween.tween_property($\".\", \"modulate:a\", 1, 0.3)
+	tween.tween_interval(0.8)
+	tween.tween_property($\".\", \"modulate:a\", 0, 0.3).set_trans(Tween.TRANS_BOUNCE)
+	await tween.finished
+	EventBus.info_box_animation_finished.emit()
+	return true
+"
 
-[node name="BlackBorder" parent="UI" instance=ExtResource("1_rwmwe")]
-modulate = Color(0, 0, 0, 1)
+[sub_resource type="PackedScene" id="PackedScene_nel2i"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("BattleScene", "Node2D", "script", "main_grid", "range_grid", "obstacle_grid", "grid_path", "grid_navigation", "cursor", "info_box", "level_container", "teams_container", "AbilityInputController", "Node", "script", "state_machine", "StateMachine", "PlayerInputController", "Node", "script", "state_machine", "PIStateMachine", "GridNavigation", "main_grid", "obstacle_grid", "MainGrid", "LevelContainer", "Node2D", "modulate", "position", "TeamsContainer", "Node", "GridIndicators", "Node2D", "RangeGrid", "position", "ObstacleGrid", "modulate", "position", "tile_set", "GridPath", "tile_map", "texture", "Cursor", "main_grid", "UI", "CanvasLayer", "BlackBorder", "modulate", "StoneBorder", "TileMapLayer", "position", "tile_map_data", "tile_set", "HUD", "HBoxContainer", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "theme", "UnitPanel", "HBoxContainer", "layout_mode", "script", "icon", "name_label", "move_label", "ap_label", "hp_label", "ability_buttons", "ability_button_scene", "TextureRect", "TextureRect", "layout_mode", "texture", "HBoxContainer", "HBoxContainer", "custom_minimum_size", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "theme_override_constants/separation", "alignment", "VBoxContainer", "VBoxContainer", "layout_mode", "NameLabel", "Label", "layout_mode", "text", "MoveLabel", "Label", "layout_mode", "text", "VBoxContainer2", "VBoxContainer", "layout_mode", "HPLabel", "Label", "layout_mode", "text", "APLabel", "Label", "layout_mode", "text", "AbilityButtons", "HBoxContainer", "layout_mode", "AbilityButton", "layout_mode", "EndTurnButton", "Button", "custom_minimum_size", "layout_mode", "text", "script", "InfoBox", "MarginContainer", "unique_name_in_owner", "modulate", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "mouse_filter", "theme", "script", "label", "PanelContainer", "PanelContainer", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "MarginContainer", "MarginContainer", "layout_mode", "theme_override_constants/margin_left", "theme_override_constants/margin_top", "theme_override_constants/margin_right", "theme_override_constants/margin_bottom", "Label", "Label", "layout_mode", "theme_override_font_sizes/font_size", "text"),
+"node_count": 34,
+"node_paths": [NodePath("."), NodePath("./AbilityInputController"), NodePath("."), NodePath("./PlayerInputController"), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./GridIndicators"), NodePath("./GridIndicators"), NodePath("./GridIndicators"), NodePath("./GridIndicators"), NodePath("."), NodePath("./UI"), NodePath("./UI"), NodePath("./UI"), NodePath("./UI/HUD"), NodePath("./UI/HUD/UnitPanel"), NodePath("./UI/HUD/UnitPanel"), NodePath("./UI/HUD/UnitPanel/HBoxContainer"), NodePath("./UI/HUD/UnitPanel/HBoxContainer/VBoxContainer"), NodePath("./UI/HUD/UnitPanel/HBoxContainer/VBoxContainer"), NodePath("./UI/HUD/UnitPanel/HBoxContainer"), NodePath("./UI/HUD/UnitPanel/HBoxContainer/VBoxContainer2"), NodePath("./UI/HUD/UnitPanel/HBoxContainer/VBoxContainer2"), NodePath("./UI/HUD/UnitPanel"), NodePath("./UI/HUD/UnitPanel/AbilityButtons"), NodePath("./UI/HUD"), NodePath("./UI"), NodePath("./UI/InfoBox"), NodePath("./UI/InfoBox/PanelContainer"), NodePath("./UI/InfoBox/PanelContainer/MarginContainer")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 10, 2, 0, 1073741827, 1, 1073741828, 2, 1073741829, 3, 1073741830, 4, 1073741831, 5, 1073741832, 6, 1073741833, 7, 1073741834, 8, 1073741835, 9, 0, 1073741824, 0, 13, 12, -1, 2, 14, 10, 1073741839, 11, 0, 1073741825, 0, 2147483647, 16, 12, 0, 0, 1073741826, 0, 18, 17, -1, 2, 19, 13, 1073741844, 14, 0, 1073741827, 0, 2147483647, 21, 15, 0, 0, 1073741828, 0, 2147483647, 22, 16, 2, 1073741847, 17, 1073741848, 18, 0, 1073741829, 0, 2147483647, 25, 19, 0, 0, 1073741830, 0, 27, 26, -1, 2, 28, 20, 29, 21, 0, 1073741831, 0, 31, 30, -1, 0, 0, 1073741832, 0, 33, 32, -1, 0, 0, 1073741833, 0, 2147483647, 34, 22, 1, 35, 23, 0, 1073741834, 0, 2147483647, 36, 24, 3, 37, 25, 38, 26, 39, 27, 0, 1073741835, 0, 2147483647, 40, 28, 2, 1073741865, 29, 42, 30, 0, 1073741836, 0, 2147483647, 43, 31, 1, 1073741868, 32, 0, 1073741837, 0, 46, 45, -1, 0, 0, 1073741838, 0, 2147483647, 47, 33, 1, 48, 34, 0, 1073741839, 0, 50, 49, -1, 3, 51, 35, 52, 36, 53, 37, 0, 1073741840, 0, 55, 54, -1, 12, 56, 38, 57, 39, 58, 40, 59, 41, 60, 42, 61, 43, 62, 44, 63, 45, 64, 46, 65, 47, 66, 48, 67, 49, 0, 1073741841, 0, 69, 68, -1, 9, 70, 50, 71, 51, 1073741896, 52, 1073741897, 53, 1073741898, 54, 1073741899, 55, 1073741900, 56, 1073741901, 57, 78, 58, 0, 1073741842, 0, 80, 79, -1, 2, 81, 59, 82, 60, 0, 1073741843, 0, 84, 83, -1, 6, 85, 61, 86, 62, 87, 63, 88, 64, 89, 65, 90, 66, 0, 1073741844, 0, 92, 91, -1, 1, 93, 67, 0, 1073741845, 0, 95, 94, -1, 2, 96, 68, 97, 69, 0, 1073741846, 0, 99, 98, -1, 2, 100, 70, 101, 71, 0, 1073741847, 0, 103, 102, -1, 1, 104, 72, 0, 1073741848, 0, 106, 105, -1, 2, 107, 73, 108, 74, 0, 1073741849, 0, 110, 109, -1, 2, 111, 75, 112, 76, 0, 1073741850, 0, 114, 113, -1, 1, 115, 77, 0, 1073741851, 0, 2147483647, 116, 78, 1, 117, 79, 0, 1073741852, 0, 119, 118, -1, 4, 120, 80, 121, 81, 122, 82, 123, 83, 0, 1073741853, 0, 125, 124, -1, 11, 126, 84, 127, 85, 128, 86, 129, 87, 130, 88, 131, 89, 132, 90, 133, 91, 134, 92, 135, 93, 1073741960, 94, 0, 1073741854, 0, 138, 137, -1, 3, 139, 95, 140, 96, 141, 97, 0, 1073741855, 0, 143, 142, -1, 5, 144, 98, 145, 99, 146, 100, 147, 101, 148, 102, 0, 1073741856, 0, 150, 149, -1, 3, 151, 103, 152, 104, 153, 105, 0),
+"variants": [SubResource("GDScript_nu1d2"), NodePath("MainGrid"), NodePath("GridIndicators/RangeGrid"), NodePath("GridIndicators/ObstacleGrid"), NodePath("GridIndicators/GridPath"), NodePath("GridNavigation"), NodePath("GridIndicators/Cursor"), NodePath("UI/InfoBox"), NodePath("LevelContainer"), NodePath("TeamsContainer"), SubResource("GDScript_wfee2"), NodePath("StateMachine"), ExtResource("4_186qt"), SubResource("GDScript_liw8g"), NodePath("PIStateMachine"), ExtResource("4_186qt"), ExtResource("5_2awv8"), NodePath("../MainGrid"), NodePath("../GridIndicators/ObstacleGrid"), ExtResource("6_ij36y"), Color(1, 1, 1, 0.501961), Vector2(16, 16), ExtResource("7_ata7k"), Vector2(16, 16), ExtResource("7_ata7k"), Color(1, 0, 1, 1), Vector2(16, 16), SubResource("TileSet_j71w7"), ExtResource("9_abmct"), NodePath("../../MainGrid"), SubResource("AtlasTexture_ytsmm"), ExtResource("11_6oo6b"), NodePath("../../MainGrid"), ExtResource("12_bl6lu"), Color(0, 0, 0, 1), Vector2(16, 16), PackedByteArray("AAAAAP//AwAGAAQAADABAP//AwAFAAQAADACAP//AwANAAEAADADAP//AwAGAAQAADAEAP//AwAFAAQAADAFAP//AwAFAAQAADAGAP//AwAHAAQAADAHAP//AwAHAAQAADAIAP//AwAMAAEAADAJAP//AwAFAAQAADAKAP//AwAMAAEAADALAP//AwANAAEAADAMAP//AwAMAAEAADANAP//AwAHAAQAADAOAP//AwAHAAQAADAPAP//AwAMAAEAADAQAP//AwANAAEAADARAP//AwAGAAQAADASAP//AwAMAAEAADD/////AwAIAAQAADATAP//AwAEAAQAADD//wIAAwAKAAEAAAD//wUAAwAKAAMAAAD//wgAAwAKAAIAAAD//wAAAwAKAAMAAAD//wEAAwAKAAEAAAD//wMAAwAKAAEAAAD//wQAAwAKAAEAAAD//wYAAwAKAAMAAAD//wcAAwAKAAIAAAATAAAAAwAJAAIAAAATAAEAAwAJAAMAAAATAAIAAwAJAAIAAAATAAMAAwAJAAMAAAATAAQAAwAJAAEAAAATAAUAAwAJAAMAAAATAAYAAwAJAAMAAAATAAcAAwAJAAMAAAATAAgAAwAJAAEAAAATAAkAAwAIAAQAAAD//wkAAwAEAAQAAAAAAAkAAwAMAAEAAAABAAkAAwAOAAEAAAACAAkAAwAHAAQAAAADAAkAAwAMAAEAAAAEAAkAAwAMAAEAAAAFAAkAAwAHAAQAAAAGAAkAAwAOAAEAAAAHAAkAAwAOAAEAAAAIAAkAAwANAAEAAAAJAAkAAwAGAAQAAAAKAAkAAwAMAAEAAAALAAkAAwANAAEAAAAMAAkAAwAMAAEAAAANAAkAAwAOAAEAAAAOAAkAAwAMAAEAAAAPAAkAAwAOAAEAAAAQAAkAAwAGAAQAAAARAAkAAwAMAAEAAAASAAkAAwAMAAEAAAA="), SubResource("TileSet_b5joo"), 7, 0.5, 1.0, 0.5, 1.0, -312.0, -42.0, 312.0, -8.0, 2, 0, ExtResource("17_kkioh"), 2, SubResource("GDScript_t4sny"), NodePath("TextureRect"), NodePath("HBoxContainer/VBoxContainer/NameLabel"), NodePath("HBoxContainer/VBoxContainer/MoveLabel"), NodePath("HBoxContainer/VBoxContainer2/APLabel"), NodePath("HBoxContainer/VBoxContainer2/HPLabel"), NodePath("AbilityButtons"), ExtResource("18_ca2xe"), 2, ExtResource("19_g6t1m"), Vector2(90, 0), 2, 4, 4, 12, 1, 2, 2, "Unit01", 2, "MOVE:5", 2, 2, "HP:3", 2, "AP:2", 2, ExtResource("18_ca2xe"), 2, Vector2(96, 0), 2, "END TURN", SubResource("GDScript_pwien"), true, Color(1, 1, 1, 0), 15, 1.0, 1.0, 2, 2, 2, ExtResource("17_kkioh"), SubResource("GDScript_mlweh"), NodePath("PanelContainer/MarginContainer/Label"), 2, 4, 4, 2, 16, 8, 16, 8, 2, 22, "TEST"],
+"version": 3
+}
 
-[node name="StoneBorder" type="TileMapLayer" parent="UI"]
-position = Vector2(16, 16)
-tile_map_data = PackedByteArray("AAAAAP//AwAGAAQAADABAP//AwAFAAQAADACAP//AwANAAEAADADAP//AwAGAAQAADAEAP//AwAFAAQAADAFAP//AwAFAAQAADAGAP//AwAHAAQAADAHAP//AwAHAAQAADAIAP//AwAMAAEAADAJAP//AwAFAAQAADAKAP//AwAMAAEAADALAP//AwANAAEAADAMAP//AwAMAAEAADANAP//AwAHAAQAADAOAP//AwAHAAQAADAPAP//AwAMAAEAADAQAP//AwANAAEAADARAP//AwAGAAQAADASAP//AwAMAAEAADD/////AwAIAAQAADATAP//AwAEAAQAADD//wIAAwAKAAEAAAD//wUAAwAKAAMAAAD//wgAAwAKAAIAAAD//wAAAwAKAAMAAAD//wEAAwAKAAEAAAD//wMAAwAKAAEAAAD//wQAAwAKAAEAAAD//wYAAwAKAAMAAAD//wcAAwAKAAIAAAATAAAAAwAJAAIAAAATAAEAAwAJAAMAAAATAAIAAwAJAAIAAAATAAMAAwAJAAMAAAATAAQAAwAJAAEAAAATAAUAAwAJAAMAAAATAAYAAwAJAAMAAAATAAcAAwAJAAMAAAATAAgAAwAJAAEAAAATAAkAAwAIAAQAAAD//wkAAwAEAAQAAAAAAAkAAwAMAAEAAAABAAkAAwAOAAEAAAACAAkAAwAHAAQAAAADAAkAAwAMAAEAAAAEAAkAAwAMAAEAAAAFAAkAAwAHAAQAAAAGAAkAAwAOAAEAAAAHAAkAAwAOAAEAAAAIAAkAAwANAAEAAAAJAAkAAwAGAAQAAAAKAAkAAwAMAAEAAAALAAkAAwANAAEAAAAMAAkAAwAMAAEAAAANAAkAAwAOAAEAAAAOAAkAAwAMAAEAAAAPAAkAAwAOAAEAAAAQAAkAAwAGAAQAAAARAAkAAwAMAAEAAAASAAkAAwAMAAEAAAA=")
-tile_set = SubResource("TileSet_b5joo")
-
-[node name="HUD" type="HBoxContainer" parent="UI"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -312.0
-offset_top = -42.0
-offset_right = 312.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("13_ahsri")
-
-[node name="UnitPanel" type="HBoxContainer" parent="UI/HUD" node_paths=PackedStringArray("icon", "name_label", "move_label", "ap_label", "hp_label", "ability_buttons")]
-layout_mode = 2
-script = ExtResource("15_cl70o")
-icon = NodePath("TextureRect")
-name_label = NodePath("HBoxContainer/VBoxContainer/NameLabel")
-move_label = NodePath("HBoxContainer/VBoxContainer/MoveLabel")
-ap_label = NodePath("HBoxContainer/VBoxContainer2/APLabel")
-hp_label = NodePath("HBoxContainer/VBoxContainer2/HPLabel")
-ability_buttons = NodePath("AbilityButtons")
-ability_button_scene = ExtResource("18_ep1oh")
-
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/UnitPanel"]
-layout_mode = 2
-texture = ExtResource("14_02yle")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/UnitPanel"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 12
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/UnitPanel/HBoxContainer"]
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="UI/HUD/UnitPanel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Unit01"
-
-[node name="MoveLabel" type="Label" parent="UI/HUD/UnitPanel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "MOVE:5"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/HUD/UnitPanel/HBoxContainer"]
-layout_mode = 2
-
-[node name="HPLabel" type="Label" parent="UI/HUD/UnitPanel/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "HP:3"
-
-[node name="APLabel" type="Label" parent="UI/HUD/UnitPanel/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "AP:2"
-
-[node name="AbilityButtons" type="HBoxContainer" parent="UI/HUD/UnitPanel"]
-layout_mode = 2
-
-[node name="AbilityButton" parent="UI/HUD/UnitPanel/AbilityButtons" instance=ExtResource("18_ep1oh")]
-layout_mode = 2
-
-[node name="EndTurnButton" type="Button" parent="UI/HUD"]
-custom_minimum_size = Vector2(96, 0)
-layout_mode = 2
-text = "END TURN"
-script = ExtResource("16_02yle")
-
-[node name="InfoBox" type="MarginContainer" parent="UI" node_paths=PackedStringArray("label")]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("13_ahsri")
-script = ExtResource("18_ahsri")
-label = NodePath("PanelContainer/MarginContainer/Label")
-
-[node name="PanelContainer" type="PanelContainer" parent="UI/InfoBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InfoBox/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 8
-
-[node name="Label" type="Label" parent="UI/InfoBox/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "TEST"
+[node name="SceneController" type="Node2D"]
+script = ExtResource("1_kwtcs")
+transition_scene = ExtResource("2_lhphl")
+title_screen = ExtResource("3_u8vdo")
+battle_scene = SubResource("PackedScene_nel2i")
+war_room_screen = ExtResource("5_u8vdo")
+world_map_screen = ExtResource("6_dy5yq")
+quarters_screen = ExtResource("7_k6j3h")
+magic_workshop_screen = ExtResource("7_y0acf")
+gameplay_screen = ExtResource("9_32xts")
+mission_summary_screen = ExtResource("10_jw6f5")

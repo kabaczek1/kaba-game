@@ -3,68 +3,32 @@
 [ext_resource type="Script" uid="uid://ctgi0ceermsbj" path="res://ui/scenes/gameplay_screen/gameplay_screen.gd" id="1_cdmpl"]
 [ext_resource type="PackedScene" uid="uid://c8s3o4ih3mggl" path="res://gameplay/gameplay.tscn" id="2_i7oyx"]
 [ext_resource type="Script" uid="uid://bhpjgn7sah03m" path="res://ui/scenes/gameplay_screen/nextbuttontmp.gd" id="3_5lrwd"]
-[ext_resource type="Script" uid="uid://c4qxk8dse22xs" path="res://ui/scenes/gameplay_screen/finishbuttontemp.gd" id="4_hjg8b"]
-[ext_resource type="Script" uid="uid://481p50mwg0cm" path="res://ui/scenes/gameplay_screen/selection_tmp.gd" id="5_buqmc"]
+[ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://gameplay/elements/grid_border/grid_border.tscn" id="3_djboh"]
+[ext_resource type="PackedScene" uid="uid://cpoqdewk4q7oh" path="res://ui/scenes/gameplay_screen/unit_card.tscn" id="5_buqmc"]
 
-[node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button", "mission_label", "current_team_container", "gameplay_node")]
+[node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button", "gameplay_node")]
 script = ExtResource("1_cdmpl")
-mission_summary_button = NodePath("MarginContainer/VBoxContainer/MissionSummaryButton")
-mission_label = NodePath("MarginContainer/VBoxContainer/MissionLabel")
-current_team_container = NodePath("MarginContainer/VBoxContainer/CurrentTeam")
+mission_summary_button = NodePath("VBoxContainer/MissionSummaryButton")
 gameplay_node = NodePath("Gameplay")
 
 [node name="Gameplay" parent="." instance=ExtResource("2_i7oyx")]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="GridBorder" parent="." instance=ExtResource("3_djboh")]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 534.0
+offset_top = 310.0
 offset_right = 640.0
 offset_bottom = 360.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
 text = "Next"
 script = ExtResource("3_5lrwd")
 
-[node name="Button2" type="Button" parent="MarginContainer"]
+[node name="MissionSummaryButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
 text = "Finish"
-script = ExtResource("4_hjg8b")
 
-[node name="Label" type="Label" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-text = "AAAA"
-script = ExtResource("5_buqmc")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Gameplay"
-
-[node name="MissionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "<Mission Name>"
-
-[node name="CurrentTeam" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="MissionSummaryButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Mission Summary"
+[node name="UnitCard" parent="." instance=ExtResource("5_buqmc")]

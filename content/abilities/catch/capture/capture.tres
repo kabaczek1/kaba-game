@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=2 format=3 uid="uid://8qrk6r1kkpkk"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://8qrk6r1kkpkk"]
 
 [ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="1_dslgn"]
+[ext_resource type="Texture2D" uid="uid://bsnb15c7bgn2f" path="res://assets/gfx/x.png" id="1_smff4"]
 
 [resource]
 script = ExtResource("1_dslgn")
+icon = ExtResource("1_smff4")
 name = "Teleporting Fist"
 reach = 2
 description = "Fists the enemy to your base"
