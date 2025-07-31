@@ -9,7 +9,6 @@ class_name Ability
 @export var type: Enums.AbilityType
 @export var reach_validator: GDScript
 @export var target_validator: GDScript
+@export var command: GDScript
 # script
 # effect_scene???
-# range_validator
-# target_validator

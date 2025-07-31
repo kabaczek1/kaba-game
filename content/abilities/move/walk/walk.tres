@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://bkcfag8dn4t63"]
+[gd_resource type="Resource" script_class="Ability" load_steps=5 format=3 uid="uid://bkcfag8dn4t63"]
 
 [ext_resource type="Texture2D" uid="uid://bsnb15c7bgn2f" path="res://assets/gfx/x.png" id="1_cxxsm"]
 [ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="1_lnmdh"]
+[ext_resource type="Script" uid="uid://bfo6aq81jn61p" path="res://content/abilities/move/walk/blink_command.gd" id="1_suc2u"]
 [ext_resource type="Script" uid="uid://b0fhjm2w8wjr5" path="res://content/abilities/validators/teleport_reach_validator.gd" id="2_vxo27"]
 
 [resource]
@@ -13,4 +14,5 @@ description = "Ability Description"
 type = 0
 reach_validator = ExtResource("2_vxo27")
 target_validator = ExtResource("2_vxo27")
+command = ExtResource("1_suc2u")
 metadata/_custom_type_script = "uid://citer6numwmnw"

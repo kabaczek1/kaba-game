@@ -1,5 +1,9 @@
 # Changelog
 
+## 2025-07-31 (0.0.8)
+- polished state machine based player input
+- command based ability execution
+
 ## 2025-07-29 (0.0.7)
 - state machine based player input
 - ability validators

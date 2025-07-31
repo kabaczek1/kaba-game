@@ -98,5 +98,18 @@ func position_to_cell(position: Vector2):
 func get_unit_by_cell(cell):
 	return gamestate[cell].unit
 
+func change_unit_gamestate_cell(unit: Unit, target: Vector2i):
+	gamestate[unit.cell].unit = null
+	gamestate[target].unit = unit
+
+#endregion
+
+#region ability command
+
+func use_ability_command(command: Command):
+	print(command)
+	print(command.unit)
+	print(command.target)
+	command.execute()
 
 #endregion

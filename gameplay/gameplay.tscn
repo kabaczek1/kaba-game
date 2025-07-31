@@ -19,6 +19,7 @@ unique_name_in_owner = true
 
 [node name="RoomContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(16, 16)
 
 [node name="Cursor" parent="." node_paths=PackedStringArray("main_grid") instance=ExtResource("2_41n4r")]
@@ -28,4 +29,3 @@ main_grid = NodePath("../MainGrid")
 [node name="AreaIndicator" parent="." instance=ExtResource("5_gvicd")]
 unique_name_in_owner = true
 position = Vector2(16, 16)
-cells = Array[Vector2i]([Vector2i(2, 2), Vector2i(2, 1), Vector2i(1, 2), Vector2i(1, 1)])
