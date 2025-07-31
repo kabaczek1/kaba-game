@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://u5hyw05xwsnk"]
+[gd_scene load_steps=8 format=3 uid="uid://u5hyw05xwsnk"]
 
 [ext_resource type="Script" uid="uid://ctgi0ceermsbj" path="res://ui/scenes/gameplay_screen/gameplay_screen.gd" id="1_cdmpl"]
 [ext_resource type="PackedScene" uid="uid://c8s3o4ih3mggl" path="res://gameplay/gameplay.tscn" id="2_i7oyx"]
 [ext_resource type="Script" uid="uid://bhpjgn7sah03m" path="res://ui/scenes/gameplay_screen/nextbuttontmp.gd" id="3_5lrwd"]
 [ext_resource type="PackedScene" uid="uid://bahg5t11tgt5y" path="res://gameplay/elements/grid_border/grid_border.tscn" id="3_djboh"]
+[ext_resource type="Script" uid="uid://bumikhqssm3jn" path="res://ui/scenes/gameplay_screen/end_turn_button.gd" id="4_djboh"]
 [ext_resource type="PackedScene" uid="uid://cpoqdewk4q7oh" path="res://ui/scenes/gameplay_screen/unit_card.tscn" id="5_buqmc"]
+[ext_resource type="Script" uid="uid://smjxc3a8ewew" path="res://ui/scenes/gameplay_screen/turn_label.gd" id="7_wby2d"]
 
 [node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button", "gameplay_node")]
 script = ExtResource("1_cdmpl")
@@ -17,10 +19,15 @@ gameplay_node = NodePath("Gameplay")
 modulate = Color(0.20871, 0.20871, 0.20871, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 534.0
-offset_top = 310.0
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = 536.0
+offset_top = 307.0
+offset_right = 636.005
+offset_bottom = 384.0
+
+[node name="EndTurnButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "End Turn"
+script = ExtResource("4_djboh")
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -32,3 +39,9 @@ layout_mode = 2
 text = "Finish"
 
 [node name="UnitCard" parent="." instance=ExtResource("5_buqmc")]
+
+[node name="TurnLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 15.0
+text = "Turn: X"
+script = ExtResource("7_wby2d")

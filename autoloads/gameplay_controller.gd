@@ -1,6 +1,7 @@
 extends Node
 
 @export var unit_scene: PackedScene
+var turn_number: int
 
 var gameplay_node: Node2D
 var current_room_scene: PackedScene
@@ -27,12 +28,15 @@ func prep_room(room: PackedScene):
 	setup_gamestate()
 	spawn_allies()
 	spawn_enemies()
+	start_player_turn()
 	
 func load_room():
 	current_room_instance = current_room_scene.instantiate()
 	gameplay_node.room_container.add_child(current_room_instance)
 	
 func mount_spawn_room():
+	turn_number = 1
+	EventBus.turn_number_changed.emit(turn_number)
 	prep_room(MissionController.current_mission.spawn_room)
 	
 func mount_next_room():
@@ -82,7 +86,39 @@ func spawn_allies():
 	ally_units = spawn_units(GlobalController.team, current_room_instance.ally_spawn_cells)
 
 func spawn_enemies():
-	ally_units = spawn_units(current_room_instance.enemies, current_room_instance.enemy_spawn_cells)
+	enemy_units = spawn_units(current_room_instance.enemies, current_room_instance.enemy_spawn_cells)
+
+#region turn order
+
+func reset_units(units: Array[Unit]):
+	for unit in units:
+		unit.moved = false
+		# unit.ability = reset
+
+func start_player_turn():
+	reset_units(ally_units)
+	print("start_player_turn")
+	EventBus.player_turn_started.emit()
+
+func start_enemy_turn():
+	reset_units(enemy_units)
+	print("start_enemy_turn")
+	EventBus.enemy_turn_started.emit()
+	
+func end_player_turn():
+	print("end_player_turn")
+	EventBus.player_turn_ended.emit()
+	start_enemy_turn()
+	
+func end_enemy_turn():
+	print("end_enemy_turn")
+	turn_number += 1
+	EventBus.turn_number_changed.emit(turn_number)
+	EventBus.enemy_turn_ended.emit()
+	start_player_turn()
+
+
+#endregion
 
 #region cell<->position
 func cell_to_position(cell: Vector2i):

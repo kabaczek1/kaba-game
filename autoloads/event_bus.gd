@@ -8,10 +8,6 @@ signal cursor_left_main_grid()
 
 
 
-
-
-signal turn_number_changed(number: int)
-
 signal move_undid()
 
 signal info_box_animation_finished()
@@ -33,5 +29,8 @@ signal unit_cell_changed(unit: GridUnit)
 
 signal player_turn_started()
 signal player_turn_ended()
+signal enemy_turn_ended()
+signal enemy_turn_started()
+signal turn_number_changed(number: int)
 
 @warning_ignore_restore("unused_signal")

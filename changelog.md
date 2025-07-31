@@ -1,5 +1,11 @@
 # Changelog
 
+## 2025-07-31 (0.0.9)
+- Mock turn order implementation
+- Turn order signals inc. start/end/number_change
+- Mock enemy input controller
+- *fixed* bug where allies were overwritten by enemies
+
 ## 2025-07-31 (0.0.8)
 - polished state machine based player input
 - command based ability execution
