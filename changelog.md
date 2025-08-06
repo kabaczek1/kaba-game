@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2025-08-06 (0.0.10)
+- wabalaba dub dub
 - turn order UI
 - block player input during enemy turn
 
