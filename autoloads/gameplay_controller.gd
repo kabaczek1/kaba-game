@@ -12,6 +12,8 @@ var enemy_units: Array[Unit]
 var gamestate: Dictionary[Vector2i, Tile]
 var all_grid_cells: Array[Vector2i]
 	
+var turn_owner: Enums.Team
+	
 func end_mission_gameplay():
 	# possible animation?
 	MissionController.complete_mission()
@@ -67,13 +69,14 @@ func get_all_grid_cells() -> Array[Vector2i]:
 			all_grid_cells.append(Vector2i(i,j))
 	return all_grid_cells
 	
-func spawn_units(characters: Array[Character], spawn_points: Array[Vector2i]):
+func spawn_units(characters: Array[Character], spawn_points: Array[Vector2i], allegiance: Enums.Team):
 	var i = 0
 	var units_array: Array[Unit] = []
 	for character in characters:
 		var unit = unit_scene.instantiate()
 		unit.character = character
 		unit.cell = spawn_points[i]
+		unit.team = allegiance
 		unit.setup()
 		units_array.append(unit)
 		gameplay_node.unit_container.add_child(unit)
@@ -83,10 +86,10 @@ func spawn_units(characters: Array[Character], spawn_points: Array[Vector2i]):
 	return units_array
 	
 func spawn_allies():
-	ally_units = spawn_units(GlobalController.team, current_room_instance.ally_spawn_cells)
+	ally_units = spawn_units(GlobalController.team, current_room_instance.ally_spawn_cells, Enums.Team.PLAYER)
 
 func spawn_enemies():
-	enemy_units = spawn_units(current_room_instance.enemies, current_room_instance.enemy_spawn_cells)
+	enemy_units = spawn_units(current_room_instance.enemies, current_room_instance.enemy_spawn_cells, Enums.Team.ENEMY)
 
 #region turn order
 
@@ -96,11 +99,13 @@ func reset_units(units: Array[Unit]):
 		# unit.ability = reset
 
 func start_player_turn():
+	turn_owner = Enums.Team.PLAYER
 	reset_units(ally_units)
 	print("start_player_turn")
 	EventBus.player_turn_started.emit()
 
 func start_enemy_turn():
+	turn_owner = Enums.Team.ENEMY
 	reset_units(enemy_units)
 	print("start_enemy_turn")
 	EventBus.enemy_turn_started.emit()

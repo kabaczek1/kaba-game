@@ -1,9 +1,11 @@
 # Changelog
 
 ## 2025-08-06 (0.0.10)
-- wabalaba dub dub
 - turn order UI
 - block player input during enemy turn
+- enemy random walker
+- unit allegiance
+- sword attack validator
 
 ## 2025-07-31 (0.0.9)
 - Mock turn order implementation

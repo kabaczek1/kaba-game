@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://c3hbe64ul1lbo"]
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://c3hbe64ul1lbo"]
 
 [ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="1_m4vpk"]
 [ext_resource type="Texture2D" uid="uid://bsnb15c7bgn2f" path="res://assets/gfx/x.png" id="1_m788e"]
+[ext_resource type="Script" uid="uid://b541ohcmce5cf" path="res://content/abilities/validators/sword_reach_validator.gd" id="2_cdwo8"]
 
 [resource]
 script = ExtResource("1_m4vpk")
@@ -10,4 +11,6 @@ name = "Sword"
 reach = 1
 description = "Ability Description"
 type = 1
+reach_validator = ExtResource("2_cdwo8")
+target_validator = ExtResource("2_cdwo8")
 metadata/_custom_type_script = "uid://citer6numwmnw"
