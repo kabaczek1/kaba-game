@@ -1,5 +1,9 @@
 # Changelog
 
+## 2025-08-06 (0.0.10)
+- turn order UI
+- block player input during enemy turn
+
 ## 2025-07-31 (0.0.9)
 - Mock turn order implementation
 - Turn order signals inc. start/end/number_change

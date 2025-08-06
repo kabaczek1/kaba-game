@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://u5hyw05xwsnk"]
+[gd_scene load_steps=9 format=3 uid="uid://u5hyw05xwsnk"]
 
 [ext_resource type="Script" uid="uid://ctgi0ceermsbj" path="res://ui/scenes/gameplay_screen/gameplay_screen.gd" id="1_cdmpl"]
 [ext_resource type="PackedScene" uid="uid://c8s3o4ih3mggl" path="res://gameplay/gameplay.tscn" id="2_i7oyx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bumikhqssm3jn" path="res://ui/scenes/gameplay_screen/end_turn_button.gd" id="4_djboh"]
 [ext_resource type="PackedScene" uid="uid://cpoqdewk4q7oh" path="res://ui/scenes/gameplay_screen/unit_card.tscn" id="5_buqmc"]
 [ext_resource type="Script" uid="uid://smjxc3a8ewew" path="res://ui/scenes/gameplay_screen/turn_label.gd" id="7_wby2d"]
+[ext_resource type="PackedScene" uid="uid://q7fgfxhrb6br" path="res://ui/elements/label_box.tscn" id="8_ulk2q"]
 
 [node name="GameplayScreen" type="Node2D" node_paths=PackedStringArray("mission_summary_button", "gameplay_node")]
 script = ExtResource("1_cdmpl")
@@ -45,3 +46,5 @@ offset_right = 40.0
 offset_bottom = 15.0
 text = "Turn: X"
 script = ExtResource("7_wby2d")
+
+[node name="MarginContainer" parent="." instance=ExtResource("8_ulk2q")]
