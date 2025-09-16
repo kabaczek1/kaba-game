@@ -16,11 +16,10 @@ func _ready() -> void:
 func load_unit_info(unit: Unit):
 	show()
 	name_label.text = unit.character.name
-	hp_label.text = unit.character.name # temp
-	move_ability_button.texture_normal = unit.character.move_ability.icon
-	attack_ability_button.texture_normal = unit.character.attack_ability.icon
-	catch_ability_button.texture_normal = unit.character.catch_ability.icon
-	
+	hp_label.text = "HP %d/%d" % [unit.character.hp, unit.character.maxhp]
+	move_ability_button.load(unit, unit.character.move_ability)
+	attack_ability_button.load(unit, unit.character.attack_ability)
+	catch_ability_button.load(unit, unit.character.catch_ability)
 
 func hide_unit_card(_unit: Unit):
 	hide()

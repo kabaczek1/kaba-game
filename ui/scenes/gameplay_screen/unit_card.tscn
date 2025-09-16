@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpoqdewk4q7oh"]
+[gd_scene load_steps=4 format=3 uid="uid://cpoqdewk4q7oh"]
 
 [ext_resource type="Script" uid="uid://c3h0dj3omfxue" path="res://ui/scenes/gameplay_screen/unit_card.gd" id="1_l1g7r"]
 [ext_resource type="Texture2D" uid="uid://dudamou3royj8" path="res://assets/gfx/cursor5.png" id="1_rkc5k"]
-[ext_resource type="Texture2D" uid="uid://bmq8ecywk1m46" path="res://assets/gfx/cursor2.png" id="2_l1g7r"]
-[ext_resource type="Texture2D" uid="uid://jlb70ugqwqns" path="res://assets/gfx/cursor3.png" id="3_fjx06"]
+[ext_resource type="PackedScene" uid="uid://boit3nwd5y50b" path="res://ui/elements/ability_button.tscn" id="3_rkc5k"]
 
 [node name="UnitCard" type="MarginContainer"]
 offset_top = 304.0
@@ -39,17 +38,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "HP 3/4"
 
-[node name="MoveAbilityButton" type="TextureButton" parent="HBoxContainer"]
+[node name="MoveAbilityButton" parent="HBoxContainer" instance=ExtResource("3_rkc5k")]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("1_rkc5k")
 
-[node name="AttackAbilityButton" type="TextureButton" parent="HBoxContainer"]
+[node name="AttackAbilityButton" parent="HBoxContainer" instance=ExtResource("3_rkc5k")]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("2_l1g7r")
 
-[node name="CatchAbilityButton" type="TextureButton" parent="HBoxContainer"]
+[node name="CatchAbilityButton" parent="HBoxContainer" instance=ExtResource("3_rkc5k")]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("3_fjx06")

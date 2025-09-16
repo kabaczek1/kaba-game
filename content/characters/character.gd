@@ -13,5 +13,13 @@ var hp: int
 @export var catch_ability: Ability
 @export var item: Item
 
-func setup():
+func setup_hp():
 	hp = maxhp
+
+func take_damage(amount: int):
+	hp -= amount
+	if hp <= 0:
+		die()
+
+func die():
+	print(name, " died :c")

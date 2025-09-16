@@ -42,7 +42,7 @@ text = "PLAY"
 script = ExtResource("1_xh7aq")
 
 [node name="VersionLabel" parent="." instance=ExtResource("3_ylqra")]
-offset_left = 607.0
+offset_left = 8.0
 offset_top = 345.0
-offset_right = 637.0
+offset_right = 38.0
 offset_bottom = 360.0

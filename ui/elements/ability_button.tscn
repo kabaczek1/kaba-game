@@ -1,19 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://boit3nwd5y50b"]
+[gd_scene load_steps=3 format=3 uid="uid://boit3nwd5y50b"]
 
-[sub_resource type="GDScript" id="GDScript_anlpg"]
-script/source = "extends TextureButton
-
-var ability#: Ability
-
-#func set_ability(new_ability: Ability):
-	#ability = new_ability
-	#texture_normal = ability.icon
-	#texture_pressed = ability.icon
-	#tooltip_text = ability.description
-
-func _pressed():
-	print(ability)
-"
+[ext_resource type="Texture2D" uid="uid://bsnb15c7bgn2f" path="res://assets/gfx/x.png" id="1_8r35d"]
+[ext_resource type="Script" uid="uid://c6dyppp4rcbvl" path="res://ui/elements/ability_button.gd" id="1_jjrtr"]
 
 [node name="AbilityButton" type="TextureButton"]
-script = SubResource("GDScript_anlpg")
+custom_minimum_size = Vector2(32, 32)
+texture_normal = ExtResource("1_8r35d")
+script = ExtResource("1_jjrtr")

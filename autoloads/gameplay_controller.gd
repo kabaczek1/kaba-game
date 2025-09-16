@@ -75,6 +75,7 @@ func spawn_units(characters: Array[Character], spawn_points: Array[Vector2i], al
 	for character in characters:
 		var unit = unit_scene.instantiate()
 		unit.character = character
+		unit.character.setup_hp()
 		unit.cell = spawn_points[i]
 		unit.team = allegiance
 		unit.setup()

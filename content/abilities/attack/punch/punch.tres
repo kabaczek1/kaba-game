@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=6 format=3 uid="uid://b7r3fujvus6g2"]
+
+[ext_resource type="Script" uid="uid://citer6numwmnw" path="res://content/abilities/ability.gd" id="1_fcgqm"]
+[ext_resource type="Script" uid="uid://sgi4168l10ut" path="res://content/abilities/attack/punch/punch_command.gd" id="1_mtblb"]
+[ext_resource type="Texture2D" uid="uid://c4301fptw8fak" path="res://assets/gfx/punch.png" id="1_ywnel"]
+[ext_resource type="Script" uid="uid://qaw2il7vfiko" path="res://content/abilities/validators/melee_attack_reach_validator.gd" id="2_jy1i8"]
+[ext_resource type="Script" uid="uid://cjgvsqjcxvgse" path="res://content/abilities/validators/melee_attack_target_validator.gd" id="4_mtblb"]
+
+[resource]
+script = ExtResource("1_fcgqm")
+icon = ExtResource("1_ywnel")
+name = "Punch"
+reach = 1
+description = "Punch someone"
+type = 1
+reach_validator = ExtResource("2_jy1i8")
+target_validator = ExtResource("4_mtblb")
+command = ExtResource("1_mtblb")
+metadata/_custom_type_script = "uid://citer6numwmnw"

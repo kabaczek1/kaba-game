@@ -22,6 +22,11 @@ func _ready() -> void:
 	EventBus.player_turn_ended.connect(func ():
 		state_machine.set_default_state_and_push(no_input_state)
 	)
+	EventBus.ability_button_pressed.connect(func (unit, ability):
+		print("PIC: ", unit, " ", ability)
+		state_machine.reset_and_set_state(SelectState.new(state_machine, unit))
+		state_machine.push_state(AbilityState.new(state_machine, unit, ability))
+	)
 	idle_state = IdleState.new(state_machine)
 	state_machine.set_default_state_and_push(idle_state)
 	no_input_state = NoInputState.new(state_machine)

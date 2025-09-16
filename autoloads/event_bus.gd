@@ -33,4 +33,6 @@ signal enemy_turn_ended()
 signal enemy_turn_started()
 signal turn_number_changed(number: int)
 
+signal ability_button_pressed(unit: Unit, ability, Ability)
+
 @warning_ignore_restore("unused_signal")
